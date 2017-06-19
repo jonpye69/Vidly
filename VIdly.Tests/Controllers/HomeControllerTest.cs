@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using VIdly;
-using VIdly.Controllers;
+using Vidly.Controllers;
+using Vidly;
 
-namespace VIdly.Tests.Controllers
+namespace Vidly.Tests.Controllers
 {
     [TestClass]
     public class HomeControllerTest

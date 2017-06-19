@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace VIdly.Controllers
+namespace Vidly.Controllers
 {
     public class HomeController : Controller
     {
