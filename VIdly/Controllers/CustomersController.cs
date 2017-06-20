@@ -3,7 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
 
-namespace VIdly.Controllers
+namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
