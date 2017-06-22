@@ -4,5 +4,15 @@
     ViewBag.Title = Model.Name;
 }
 
-<h2>@Model.Name</h2>
+<h2>Customer Details</h2>
+
+<ul>
+    <li>@Model.Name</li>
+    @if (Model.BirthDate.HasValue)
+    {
+        <li>
+            Birth Date: @Model.BirthDate.Value.ToShortDateString()
+        </li>
+    }
+</ul>
 
