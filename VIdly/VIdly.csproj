@@ -199,9 +199,34 @@
     <Compile Include="Migrations\201706221721141_addColumnBirthDateCustomer.Designer.cs">
       <DependentUpon>201706221721141_addColumnBirthDateCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706230644002_AddGenreModel_UpdateMovieModel.cs" />
+    <Compile Include="Migrations\201706230644002_AddGenreModel_UpdateMovieModel.Designer.cs">
+      <DependentUpon>201706230644002_AddGenreModel_UpdateMovieModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706230646471_updateMovieModelWithGenre.cs" />
+    <Compile Include="Migrations\201706230646471_updateMovieModelWithGenre.Designer.cs">
+      <DependentUpon>201706230646471_updateMovieModelWithGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706230648348_addGenreRecordsToGenreTable.cs" />
+    <Compile Include="Migrations\201706230648348_addGenreRecordsToGenreTable.Designer.cs">
+      <DependentUpon>201706230648348_addGenreRecordsToGenreTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706230658451_addThrillerToGenre.cs" />
+    <Compile Include="Migrations\201706230658451_addThrillerToGenre.Designer.cs">
+      <DependentUpon>201706230658451_addThrillerToGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706230701474_DA_GenreName.cs" />
+    <Compile Include="Migrations\201706230701474_DA_GenreName.Designer.cs">
+      <DependentUpon>201706230701474_DA_GenreName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706230706360_MovieGenreIdFKDataTypeToByte.cs" />
+    <Compile Include="Migrations\201706230706360_MovieGenreIdFKDataTypeToByte.Designer.cs">
+      <DependentUpon>201706230706360_MovieGenreIdFKDataTypeToByte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -302,6 +327,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706221721141_addColumnBirthDateCustomer.resx">
       <DependentUpon>201706221721141_addColumnBirthDateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706230644002_AddGenreModel_UpdateMovieModel.resx">
+      <DependentUpon>201706230644002_AddGenreModel_UpdateMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706230646471_updateMovieModelWithGenre.resx">
+      <DependentUpon>201706230646471_updateMovieModelWithGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706230648348_addGenreRecordsToGenreTable.resx">
+      <DependentUpon>201706230648348_addGenreRecordsToGenreTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706230658451_addThrillerToGenre.resx">
+      <DependentUpon>201706230658451_addThrillerToGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706230701474_DA_GenreName.resx">
+      <DependentUpon>201706230701474_DA_GenreName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706230706360_MovieGenreIdFKDataTypeToByte.resx">
+      <DependentUpon>201706230706360_MovieGenreIdFKDataTypeToByte.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
