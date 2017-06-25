@@ -92,9 +92,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\VIdly\Vidly.csproj">
+    <ProjectReference Include="..\VIdly\Vidly.Web.csproj">
       <Project>{A1025B66-0F86-4E2E-BA20-81C662CF693F}</Project>
-      <Name>Vidly</Name>
+      <Name>Vidly.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

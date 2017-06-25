@@ -13,6 +13,8 @@ namespace Vidly
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Auto map (VM's to domain models) for web objects
             AutoMapperWebConfiguration.Configure();
         }
     }

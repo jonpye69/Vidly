@@ -9,6 +9,7 @@ namespace Vidly.Mappings
         public static void Configure()
         {
             ConfigureCustomerObjectMapping();
+            ConfigureMovieObjectMapping();
         }
 
         private static void ConfigureCustomerObjectMapping()
@@ -24,6 +25,24 @@ namespace Vidly.Mappings
                             o => o.MapFrom(s => s.Customer.IsSubscribedToNewsletter))
                 .ForMember(d => d.MembershipTypeId,
                             o => o.MapFrom(s => s.Customer.MembershipTypeId));
+            });
+        }
+
+        private static void ConfigureMovieObjectMapping()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<MovieFormViewModel, Movie>()
+                .ForMember(d => d.Name,
+                            o => o.MapFrom(s => s.Movie.Name))
+                .ForMember(d => d.ReleaseDate,
+                            o => o.MapFrom(s => s.Movie.ReleaseDate))
+                //.ForMember(d => d.DateAdded,
+                //            o => o.MapFrom(s => s.Movie.DateAdded))
+                .ForMember(d => d.NumberInStock,
+                            o => o.MapFrom(s => s.Movie.NumberInStock))
+                .ForMember(d => d.GenreId,
+                            o => o.MapFrom(s => s.Movie.GenreId));
             });
         }
     }

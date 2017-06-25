@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using AutoMapper;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -29,6 +31,17 @@ namespace Vidly.Controllers
             return View(movies);
         }
 
+        public ActionResult New()
+        {
+            var genres = _context.Genres.ToList();
+            var movieVM = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+
+            return View("MovieForm", movieVM);
+        }
+
         public ActionResult Details(int id)
         {
             var movie = _context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
@@ -39,6 +52,45 @@ namespace Vidly.Controllers
             return View(movie);
         }
 
+        // GET: Movies/Edit/1
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            var movieVM = new MovieFormViewModel
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+            };
+
+            return View("MovieForm", movieVM);
+        }
+
+        public ActionResult Save(MovieFormViewModel movieFormVM)
+        {
+            if (movieFormVM?.Movie == null)
+                return HttpNotFound();
+
+            if (movieFormVM.Movie.Id == 0)
+            {
+                movieFormVM.Movie.DateAdded = DateTime.Now;
+                _context.Movies.Add(movieFormVM.Movie);
+            }
+            else
+            {
+                var existingMovie = _context.Movies.Single(m => m.Id == movieFormVM.Movie.Id);
+                Mapper.Map(movieFormVM, existingMovie);
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        #region Redundant_Code_Snippets_REF
         // GET: Movies
         //public ActionResult Index()
         //{
@@ -77,11 +129,6 @@ namespace Vidly.Controllers
             //return RedirectToAction("Index", "Home", new { page = 1, sortBy = "Name" });
         }
 
-        // GET: Movies/Edit/1
-        public ActionResult Edit(int id)
-        {
-            return Content("id=" + id);
-        }
 
         // GET: Movies?pageIndex=1&sortBy=Name
         //public ActionResult Index(int? pageIndex, string sortBy)
@@ -101,5 +148,6 @@ namespace Vidly.Controllers
         {
             return Content(year + "/" + month);
         }
+        #endregion
     }
 }

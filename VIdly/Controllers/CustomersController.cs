@@ -44,19 +44,19 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(CustomerFormViewModel formViewModel)
+        public ActionResult Save(CustomerFormViewModel customerFormVM)
         {
-            if (formViewModel?.Customer == null)
+            if (customerFormVM?.Customer == null)
                 return HttpNotFound();
 
-            if (formViewModel.Customer.Id == 0)
+            if (customerFormVM.Customer.Id == 0)
             {
-                _context.Customers.Add(formViewModel.Customer);
+                _context.Customers.Add(customerFormVM.Customer);
             }
             else
             {
-                var dbCustomer = _context.Customers.Single(c => c.Id == formViewModel.Customer.Id);
-                Mapper.Map(formViewModel, dbCustomer);
+                var existingCustomer = _context.Customers.Single(c => c.Id == customerFormVM.Customer.Id);
+                Mapper.Map(customerFormVM, existingCustomer);
             }
 
             _context.SaveChanges();
