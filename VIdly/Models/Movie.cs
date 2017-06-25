@@ -1,5 +1,5 @@
 ﻿using System;
-using VIdly.Models;
+using Vidly.Models;
 
 namespace Vidly.Models
 {

@@ -1,4 +1,4 @@
-﻿namespace VIdly.Models
+﻿namespace Vidly.Models
 {
     public class MembershipType
     {
