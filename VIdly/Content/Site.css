@@ -27,3 +27,12 @@ th {
     background-color: #e7ebee;
     color: #989393;
 }
+
+.field-validation-error,
+.validation-summary-errors  {
+    color: red;
+}
+
+.input-validation-error {
+    border: 1px solid red;
+}
