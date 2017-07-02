@@ -35,9 +35,26 @@ namespace Vidly.Controllers
         public ActionResult New()
         {
             var genres = _context.Genres.ToList();
+
             var movieVM = new MovieFormViewModel
             {
                 Genres = genres
+            };
+
+            return View("MovieForm", movieVM);
+        }
+
+        // GET: Movies/Edit/1
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            var movieVM = new MovieFormViewModel(movie)
+            {
+                Genres = _context.Genres.ToList()
             };
 
             return View("MovieForm", movieVM);
@@ -53,37 +70,29 @@ namespace Vidly.Controllers
             return View(movie);
         }
 
-        // GET: Movies/Edit/1
-        public ActionResult Edit(int id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(Movie movie)
         {
-            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
-
-            if (movie == null)
-                return HttpNotFound();
-
-            var movieVM = new MovieFormViewModel
+            if (!ModelState.IsValid)
             {
-                Movie = movie,
-                Genres = _context.Genres.ToList()
-            };
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
 
-            return View("MovieForm", movieVM);
-        }
+                return View("MovieForm", viewModel);
+            }
 
-        public ActionResult Save(MovieFormViewModel movieFormVM)
-        {
-            if (movieFormVM?.Movie == null)
-                return HttpNotFound();
-
-            if (movieFormVM.Movie.Id == 0)
+            if (movie.Id == 0)
             {
-                movieFormVM.Movie.DateAdded = DateTime.Now;
-                _context.Movies.Add(movieFormVM.Movie);
+                movie.DateAdded = DateTime.Now;
+                _context.Movies.Add(movie);
             }
             else
             {
-                var existingMovie = _context.Movies.Single(m => m.Id == movieFormVM.Movie.Id);
-                Mapper.Map(movieFormVM, existingMovie);
+                var existingMovie = _context.Movies.Single(m => m.Id == movie.Id);
+                Mapper.Map(movie, existingMovie);
             }
 
             try
@@ -92,11 +101,13 @@ namespace Vidly.Controllers
             }
             catch (DbEntityValidationException e)
             {
+                // TODO: would pump this out to the UI possibly, or at very least, log it!
                 Console.WriteLine(e);
             }
 
 
             return RedirectToAction("Index");
+            // return RedirectToAction("Index", "Movies"); = should provide the same result as above - we are already in Movies controller
         }
 
         #region Redundant_Code_Snippets_REF

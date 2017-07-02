@@ -1,4 +1,5 @@
-﻿"use strict";
+﻿/// <reference path="functions.js" />
+"use strict";
 
 // Objects for various types of validation for customer model
 var customerMembership = {
@@ -27,5 +28,3 @@ $.validator.unobtrusive.adapters.add(customerMembership.validationName, function
     options.messages[customerMembership.validationName] = options.message;
 
 });
-
-
