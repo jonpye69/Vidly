@@ -1,0 +1,60 @@
+﻿/*body {
+    padding: 0;
+    margin: 0
+}
+
+h4 {
+   font-weight: bold;
+    
+}
+
+p {
+    margin: 20px 0;
+}
+
+section {
+    padding: 20px 0;
+}
+
+.wrapper {
+    width: 500px;
+    margin: 0 auto;
+    position: relative;
+    padding: 28px 0 0 0;
+    float: left;
+    clear: left;
+}
+
+nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100px;
+    background: green;
+    text-decoration: none;
+    padding: 4px 0;
+    z-index: 100;
+    width: 100px;
+}
+
+nav a {
+    font-family: helvetica;
+    color: #ffffff;
+    padding: 4px;
+    float: left;
+    text-decoration: none;
+    margin-right: 4px;
+    clear: both;
+}
+
+nav a:hover,
+nav a.active {
+    background: white;
+    color: green
+}*/
+
+.fixed {
+    position: fixed;
+    top: 66px;
+    width: 160px;
+} 
