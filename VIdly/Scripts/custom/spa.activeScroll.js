@@ -1,16 +1,17 @@
 ﻿var isAnimating = false;
-$('.js-spa-menu li a')
-    .on('click',
-        function() {
-            isAnimating = true;
-            $('.js-spa-menu li').removeClass('active');
-            $(this).parent().addClass('active');
-            var scrollAnchor = $(this).attr('data-scroll'),
-                scrollPoint = $('div[data-anchor="' + scrollAnchor + '"]').offset().top - 58; //28
+$('.js-spa-menu li a').on('click', function () {
 
-            $('body,html')
-                .animate({
-                        scrollTop: scrollPoint
+    $('.js-spa-menu li').removeClass('active');
+    $(this).parent().addClass('active');
+
+    isAnimating = true;
+
+    var scrollAnchor = $(this).attr('data-scroll'),
+        scrollPoint = $('div[data-anchor="' + scrollAnchor + '"]').offset().top - 58; //28
+
+    $('body,html').animate(
+        {
+            scrollTop: scrollPoint
                     },
                     500,
                     function() {
@@ -24,7 +25,7 @@ $('.js-spa-menu li a')
 
 $(window).scroll(function() {
     var windscroll = $(window).scrollTop();
-    if (windscroll >= 50) { //100
+    if (windscroll >= 48) { //100
     	$('.js-spa-menu').addClass('fixed');
     	$('.js-spa-container div').each(function (i) {
             if ($(this).position().top <= windscroll - 45) {    //60
