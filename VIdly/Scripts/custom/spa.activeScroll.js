@@ -1,12 +1,29 @@
-﻿var isAnimating = false;
-$('.js-spa-menu li a').on('click', function () {
+﻿var isAnimating = false,
+    obj = {
+        classes: {
+            containerDiv: '.js-spa-container div',
+            menu: '.js-spa-menu',
+            menuListItem: '.js-spa-menu li',
+            menuListItemLink: '.js-spa-menu li a',
+            menuActive: 'active',
+            menuFixed: 'fixed',
+            menuListItemActive: '.js-spa-menu li.active',
+            menuListItemFirst: '.js-spa-menu li:first'
+    },
+    actions: {
+        click: 'click'        
+    },
+    data: {
+        scroll: 'scroll',
+        anchor: 'anchor'
+    }
+};
 
-    $('.js-spa-menu li').removeClass('active');
-    $(this).parent().addClass('active');
+$(obj.classes.menuListItemLink).on(obj.actions.click, function () {
 
     isAnimating = true;
 
-    var scrollAnchor = $(this).attr('data-scroll'),
+    var scrollAnchor = $(this).data(obj.data.scroll),
         scrollPoint = $('div[data-anchor="' + scrollAnchor + '"]').offset().top - 58; //28
 
     $('body,html').animate(
@@ -18,6 +35,9 @@ $('.js-spa-menu li a').on('click', function () {
                         isAnimating = false;
                     });
 
+    $(obj.classes.menuListItem).removeClass(obj.classes.menuActive);
+    $(this).parent().addClass(obj.classes.menuActive);
+
             return false;
 
         });
@@ -26,22 +46,26 @@ $('.js-spa-menu li a').on('click', function () {
 $(window).scroll(function() {
     var windscroll = $(window).scrollTop();
     if (windscroll >= 48) { //100
-    	$('.js-spa-menu').addClass('fixed');
-    	$('.js-spa-container div').each(function (i) {
+    	$(obj.classes.menu).addClass(obj.classes.menuFixed);
+    	$(obj.classes.containerDiv).each(function (i) {
             if ($(this).position().top <= windscroll - 45) {    //60
 
             if (!isAnimating) {
-            	$('.js-spa-menu li.active').removeClass('active');
-            	$('.js-spa-menu li').eq(i).addClass('active');
+                $(obj.classes.menuListItemActive).removeClass(obj.classes.menuActive);
+                $(obj.classes.menuListItem).eq(i).addClass(obj.classes.menuActive);
             }
             }
         });
 
     } else {
 
-    	$('.js-spa-menu').removeClass('fixed');
-    	$('.js-spa-menu li.active').removeClass('active');
-    	$('.js-spa-menu li:first').addClass('active');
+        $(obj.classes.menu).removeClass(obj.classes.menuFixed);
+        $(obj.classes.menuListItemActive).removeClass(obj.classes.menuActive);
+        $(obj.classes.menuListItemFirst).addClass(obj.classes.menuActive);
     }
 
 }).scroll();
+
+function initModule(opts) {
+    // TODO: initialise the options here (if to be used for more than one form)
+}
