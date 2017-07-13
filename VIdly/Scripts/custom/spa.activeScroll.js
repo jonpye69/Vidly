@@ -1,5 +1,6 @@
 ﻿var isAnimating = false,
     obj = {
+        animateElements: 'body,html',
         classes: {
             containerDiv: '.js-spa-container div',
             menu: '.js-spa-menu',
@@ -9,51 +10,54 @@
             menuFixed: 'fixed',
             menuListItemActive: '.js-spa-menu li.active',
             menuListItemFirst: '.js-spa-menu li:first'
-    },
-    actions: {
-        click: 'click'        
-    },
-    data: {
-        scroll: 'scroll',
-        anchor: 'anchor'
-    }
-};
+        },
+        actions: {
+            click: 'click'
+        },
+        data: {
+            scroll: 'scroll',
+            anchor: 'anchor'
+        }
+    };
 
 $(obj.classes.menuListItemLink).on(obj.actions.click, function () {
 
+    $(obj.classes.menuListItem).removeClass(obj.classes.menuActive);
+
     isAnimating = true;
+
+    var menuPosition = $(obj.classes.menu).position().top;
 
     var scrollAnchor = $(this).data(obj.data.scroll),
         scrollPoint = $('div[data-anchor="' + scrollAnchor + '"]').offset().top - 58; //28
 
-    $('body,html').animate(
+    $(obj.animateElements).animate(
         {
             scrollTop: scrollPoint
-                    },
+        },
                     500,
-                    function() {
+                    function () {
                         isAnimating = false;
                     });
 
-    $(obj.classes.menuListItem).removeClass(obj.classes.menuActive);
-    $(this).parent().addClass(obj.classes.menuActive);
+    if (menuPosition !== 0) $(this).parent().addClass(obj.classes.menuActive);
 
-            return false;
+    return false;
 
-        });
+});
 
 
-$(window).scroll(function() {
+$(window).scroll(function () {
     var windscroll = $(window).scrollTop();
     if (windscroll >= 48) { //100
-    	$(obj.classes.menu).addClass(obj.classes.menuFixed);
-    	$(obj.classes.containerDiv).each(function (i) {
+        $(obj.classes.menu).addClass(obj.classes.menuFixed);
+        $(obj.classes.containerDiv).each(function (i) {
             if ($(this).position().top <= windscroll - 45) {    //60
 
-            if (!isAnimating) {
-                $(obj.classes.menuListItemActive).removeClass(obj.classes.menuActive);
-                $(obj.classes.menuListItem).eq(i).addClass(obj.classes.menuActive);
-            }
+                if (!isAnimating) {
+                    $(obj.classes.menuListItemActive).removeClass(obj.classes.menuActive);
+                    $(obj.classes.menuListItem).eq(i).addClass(obj.classes.menuActive);
+                }
             }
         });
 
