@@ -72,4 +72,4 @@ $(window).scroll(function () {
 
 function initModule(opts) {
     // TODO: initialise the options here (if to be used for more than one form)
-}
+};

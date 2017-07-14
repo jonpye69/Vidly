@@ -17,7 +17,7 @@ namespace Vidly
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            // Auto map (VM's to domain models) plus domain models > domain models, for web objects
+            // Auto map (VM's to domain models) plus domain models > domain models, and DM > DTO (and vice versa) for web objects
             AutoMapperWebConfiguration.Configure();
         }
     }

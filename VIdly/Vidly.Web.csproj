@@ -188,6 +188,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\MoviesController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\SpaController.cs" />
     <Compile Include="DTOs\CustomerDto.cs" />
+    <Compile Include="DTOs\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -283,6 +285,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\custom\customer.validation.js" />
+    <Content Include="Scripts\custom\jQueryEx.js" />
     <Content Include="Scripts\custom\spa.activeScroll.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom\functions.js" />
