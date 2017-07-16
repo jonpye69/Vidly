@@ -58,12 +58,21 @@ namespace Vidly.Mappings
             });
         }
 
+        //private static void ConfigureCustomerDtoObjectMapping()
+        //{
+        //    Mapper.Initialize(cfg =>
+        //    {
+        //        cfg.CreateMap<Customer, CustomerDto>();
+        //        cfg.CreateMap<CustomerDto, Customer>();//.ForMember(c => c.Id, opt => opt.Ignore());
+        //    });
+        //}
+
         private static void ConfigureCustomerDtoObjectMapping()
         {
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<Customer, CustomerDto>();
-                cfg.CreateMap<CustomerDto, Customer>().ForMember(c => c.Id, opt => opt.Ignore());
+                cfg.CreateMap<CustomerDto, Customer>();
             });
         }
 
