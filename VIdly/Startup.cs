@@ -1,6 +1,5 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using Vidly.Mappings;
 
 [assembly: OwinStartupAttribute(typeof(Vidly.Startup))]
 namespace Vidly
@@ -10,7 +9,7 @@ namespace Vidly
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-            AutoMapperWebConfiguration.Configure();
+            //AutoMapperWebConfiguration.Configure();
         }
     }
 }
