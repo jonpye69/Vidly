@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using Vidly.DTOs;
@@ -18,19 +17,12 @@ namespace Vidly.Controllers.Api
         }
 
         // GET: /api/customers
-        //public IHttpActionResult GetCustomers()
-        //{
-        //    var customers = _context.Customers.ToList()
-        //        .Select(Mapper.Map<Customer, CustomerDto>);
-
-        //    return Ok(customers);
-        //}
-
-        public IEnumerable<CustomerDto> GetCustomers()
+        public IHttpActionResult GetCustomers()
         {
-            return _context.Customers.ToList()
+            var customers = _context.Customers.ToList()
                 .Select(Mapper.Map<Customer, CustomerDto>);
 
+            return Ok(customers);
         }
 
         // GET /api/customers/1
