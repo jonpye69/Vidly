@@ -5,12 +5,19 @@
 }
 
 <h2>Customers</h2>
-@if (!Model.Any())
+
+<div class="form-group">
+    @Html.ActionLink("New Customer", "New", null, new { @class = "btn btn-sm  btn-primary" })
+</div>
+
+
+@*@if (!Model.Any())
 {
     <p>We don't have any customers yet.</p>
 }
 else
-{
+{*@
+    <!-- Datatable -->
     <table class="table table-bordered table-hover" id="customers">
         <thead>
             <tr>
@@ -20,19 +27,19 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var customer in Model)
+            @*@foreach (var customer in Model)
             {
                 <tr>
                     <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new {id = customer.Id}, null)</td>
                     <td>@customer.MembershipType.Name</td>
-                    <td><button data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button></td>
+                    <td><button data-customer-full-name="@customer.Name" data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button></td>
                 </tr>
-            }
+            }*@
         </tbody>
     </table>
-}
+@* } *@
 
 @section scripts
 {
-    @Scripts.Render("~/Scripts/custom/jQueryEx.js")
+    @Scripts.Render("~/Scripts/custom/customers.api.js")
 }

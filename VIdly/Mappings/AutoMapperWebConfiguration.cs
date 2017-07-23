@@ -14,7 +14,7 @@ namespace Vidly.Mappings
 
             //ConfigureCustomerObjectMapping();
 
-            ConfigureDtoObjectMapping();
+            ConfigureDtoObjectMappings();
 
             // See method comment...you know, just for lols
             //ConfigureCustomerDtoObjectMapping();
@@ -89,7 +89,7 @@ namespace Vidly.Mappings
         //    });
         //}
 
-        private static void ConfigureDtoObjectMapping()
+        private static void ConfigureDtoObjectMappings()
         {
             Mapper.Initialize(cfg =>
             {
@@ -97,9 +97,13 @@ namespace Vidly.Mappings
                 cfg.CreateMap<CustomerDto, Customer>()
                     .ForMember(c => c.Id, opt => opt.Ignore());
 
+                cfg.CreateMap<MembershipType, MembershipTypeDto>();
+
                 cfg.CreateMap<Movie, MovieDto>();
                 cfg.CreateMap<MovieDto, Movie>()
                 .ForMember(c => c.Id, opt => opt.Ignore());
+
+                cfg.CreateMap<Genre, GenreDto>();
             });
         }
 

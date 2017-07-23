@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using Vidly.DTOs;
 using Vidly.Models;
+using System.Data.Entity;
 
 namespace Vidly.Controllers.Api
 {
@@ -19,7 +20,9 @@ namespace Vidly.Controllers.Api
         // GET: /api/movies
         public IHttpActionResult GetMovies()
         {
-            var movies = _context.Movies.ToList()
+            var movies = _context.Movies
+                .Include(m => m.Genre)
+                .ToList()
                 .Select(Mapper.Map<Movie, MovieDto>);
 
             return Ok(movies);
