@@ -8,6 +8,7 @@
 
 @using (Html.BeginForm("Save", "Movies"))
 {
+
     @Html.ValidationSummary(true, "Please fix the following errors.")
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
@@ -33,7 +34,14 @@
     @Html.HiddenFor(m => m.Id)
     @*@Html.HiddenFor(m => m.DateAdded)*@
     @Html.AntiForgeryToken()
-    <button type="submit" class="btn btn-primary">Save</button>
+
+    <a href="@Request.UrlReferrer" class="btn btn-default">
+        <span class="glyphicon glyphicon-remove-circle"></span> Cancel
+    </a>
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-ok-circle"></span> Save
+    </button>
+    
 }
 
 @section scripts

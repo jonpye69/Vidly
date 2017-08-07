@@ -95,3 +95,7 @@ th {
 .bs-callout-info h4 {
     color: #5bc0de;
 }
+
+.modal-glyph {
+    padding-right: 5px; 
+}

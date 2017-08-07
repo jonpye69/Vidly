@@ -395,6 +395,7 @@
     <Content Include="Scripts\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\custom\bootstrapAlert.js" />
     <Content Include="Scripts\custom\customer.validation.js" />
     <Content Include="Scripts\custom\customers.api.js" />
     <Content Include="Scripts\custom\movies.api.js" />

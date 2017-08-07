@@ -2,10 +2,10 @@
 
    "use strict";
 
-    // Note: all strings, one Id
+    // Note: all strings, one Id (objectIdProp)
     var obj = {
         classes: {
-            btnDelete: ""   // .js-delete
+            btnDelete: ".js-delete"   // .js-delete (default)
         },
         selectors: {
             tblObjects: ""   // #customers    
@@ -13,7 +13,7 @@
         urls: {
             getObjects: "",     // /api/customers
             getObject: "",      // /api/customers/23 GET endpoint
-            editObject: "",     // /customers/edit/23
+            editObject: "",     // /customers/edit/23 PUT endpoint
             deleteObject: ""    // /api/customers/23 DELETE endpoint
         },
         dataDeleteAttributes: {
@@ -23,6 +23,7 @@
         nestedObjectName: "",      // "membershipType.name",
         typeOfObj: ""           // customer
     };
+
 
     var dTable = $(obj.selectors.tblObjects)
         .DataTable(
@@ -34,8 +35,8 @@
             columns: [
             {
                 data: "name",
-                render: function(data, type, obj) {
-                    return "<a href='" + obj.urls.editObject + obj.id + "'>" + obj.name;
+                render: function(data, type, model) {
+                    return "<a href='" + obj.urls.editObject + model.id + "'>" + model.name;
                 }
             },
             {
@@ -43,17 +44,20 @@
             },
             {
                 data: "id",
-                render: function (data, type, obj) {
+                render: function (data, type, model) {
                     return "<button class='btn btn-sm btn-warning js-delete' data-"
                         + obj.typeOfObj + "-id=" + data
-                        + " data-" + obj.typeOfObj + "-full-name='" + obj.name + "'>Delete</button>";
+                        + " data-" + obj.typeOfObj + "-full-name='" + model.name + "'>Delete</button>";
                 }
             }
-        ]
+            ]
+
     });
 
     $(obj.selectors.tblObjects).on("click", obj.classes.btnDelete, function () {
+
         var button = $(this);
+
         bootbox.confirm("Are you sure you wish to delete " + obj.typeOfObj + " <b>" + button.data(obj.dataDeleteAttributes.objectNameProp) + "</b>?", function (result) {
             if (result) {
                 $.ajax({

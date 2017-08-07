@@ -7,7 +7,11 @@
 <h2>Customers</h2>
 
 <div class="form-group">
-    @Html.ActionLink("New Customer", "New", null, new { @class = "btn btn-sm  btn-primary" })
+    <a href="@Url.Action("New", "Customers")" class="btn btn-sm  btn-primary">
+        <span class="glyphicon glyphicon-plus-sign"></span> New Customer
+    </a>
+
+    @*@Html.ActionLink("New Customer", "New", null, new { @class = "btn btn-sm  btn-primary" })*@
 </div>
 
 
