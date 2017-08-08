@@ -23,7 +23,7 @@ textarea {
     max-width: 280px;
 }
 
-th {
+.dataTable > thead > tr > th {
     background-color: #e7ebee;
     color: #989393;
 }

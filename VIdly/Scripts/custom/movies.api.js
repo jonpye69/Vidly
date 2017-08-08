@@ -1,5 +1,6 @@
 ﻿/// <reference path="bootstrapAlert.js" />
 /// <reference path="../bootbox.js" />
+/// <reference path="~/Scripts/DataTables/jquery.dataTables.js" />
 
 $(function () {
 
@@ -76,17 +77,12 @@ $(function () {
                             }
                         },
                         error: function (xhr) {
-                            //console.log("readyState: " + xhr.readyState);
-                            //console.log("responseText: " + xhr.responseText);
-                            //console.log("status: " + xhr.status);
-                            //console.log("text status: " + textStatus);
-                            //console.log("error: " + err);
                             if (xhr.status === 404) {
+                                table.row(button.parents("tr")).remove().draw();
                                 bootstrapAlert.show('The record for ' + button.data().movieName + ' could not be located.',
                                        false);
                             }
-                            table.destroy();
-                            table.draw();
+
                         }
 
                     });

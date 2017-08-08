@@ -14,10 +14,14 @@ jQuery.validator.methods.date = function (value, element) {
 };
 
 $.validator.addMethod(customerMembership.validationName, function (value) {
-   
+
+    // If no membership type
+    if (Number($(customerMembership.associatedClass).val()) < 2) return true;
+
     // If no dob, and no membership type
     if (!value && (!($(customerMembership.associatedClass).val()) || Number($(customerMembership.associatedClass).val()) < 2)) return true;
 
+    // Age greater or equal to 18 AND a membership type is present
     return getAge(value) >= 18 && Number($(customerMembership.associatedClass).val()) >= 2;
 });
 

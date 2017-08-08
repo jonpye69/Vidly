@@ -6,6 +6,10 @@
 
 <h2>Customers</h2>
 
+<div class="js-alert alert" style="display: none;">
+    <span class="js-icon modal-glyph glyphicon"></span><span class="js-message"></span>
+</div>
+
 <div class="form-group">
     <a href="@Url.Action("New", "Customers")" class="btn btn-sm  btn-primary">
         <span class="glyphicon glyphicon-plus-sign"></span> New Customer
@@ -16,22 +20,23 @@
 
 
 @*@if (!Model.Any())
-{
-    <p>We don't have any customers yet.</p>
-}
-else
-{*@
-    <!-- Datatable -->
-    <table class="table table-bordered table-hover" id="customers">
-        <thead>
-            <tr>
-                <th>Customer</th>
-                <th>Membership Type</th>
-                <th>Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @*@foreach (var customer in Model)
+    {
+        <p>We don't have any customers yet.</p>
+    }
+    else
+    {*@
+<!-- Datatable -->
+<table class="table table-bordered table-hover" id="customers">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>Membership Type</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* Table now generated through api script ref: datatables *@
+        @*@foreach (var customer in Model)
             {
                 <tr>
                     <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new {id = customer.Id}, null)</td>
@@ -39,11 +44,12 @@ else
                     <td><button data-customer-full-name="@customer.Name" data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button></td>
                 </tr>
             }*@
-        </tbody>
-    </table>
+    </tbody>
+</table>
 @* } *@
 
 @section scripts
 {
+    @Scripts.Render("~/Scripts/custom/bootstrapAlert.js")
     @Scripts.Render("~/Scripts/custom/customers.api.js")
 }

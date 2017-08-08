@@ -22,6 +22,7 @@ namespace Vidly.ViewModels
 
         [Required]
         [Display(Name = "Release Date")]
+        [DataType(DataType.Date)]
         public DateTime? ReleaseDate { get; set; }
 
         [Required]
