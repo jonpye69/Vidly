@@ -2,15 +2,15 @@
 /// <reference path="../bootbox.js" />
 /// <reference path="~/Scripts/DataTables/jquery.dataTables.js" />
 
-$(function () {
+bootstrapAlert.init({
+    selectors: {
+        alert: ".js-alert",
+        icon: ".js-icon",
+        message: ".js-message"
+    }
+});
 
-    bootstrapAlert.init({
-        selectors: {
-            alert: ".js-alert",
-            icon: ".js-icon",
-            message: ".js-message"
-        }
-    });
+$(function () {
 
     // Bind the movies
     var table = $("#movies").DataTable(
@@ -42,8 +42,10 @@ $(function () {
     });
 
     // Delete a movie
-    $("#movies").on("click", ".js-delete", function () {
+    $("#movies").on("click", ".js-delete", function (e) {
+
         var button = $(this);
+        e.preventDefault();
 
         bootbox.confirm({
             message: "Are you sure you wish to delete movie <b>" + button.data().movieName + "</b>?",
@@ -59,38 +61,37 @@ $(function () {
             },
             callback: function (result) {
                 if (result) {
-                    $.ajax({
-                        url: "/api/movies/" + button.data().movieId,
-                        method: "DELETE",
-                        success: function (result) {
-                            if (result.success) {
-                                table.row(button.parents("tr")).remove().draw();
-
-                                bootstrapAlert.show('The movie <b>' +
-                                        button.data().movieName +
-                                        '</b> has successfully been deleted.',
-                                        true);
-                            }
-                            else {
-                                bootstrapAlert.show('The following error has occured: ' + result.message,
-                                        false);
-                            }
-                        },
-                        error: function (xhr) {
-                            if (xhr.status === 404) {
-                                table.row(button.parents("tr")).remove().draw();
-                                bootstrapAlert.show('The record for ' + button.data().movieName + ' could not be located.',
-                                       false);
-                            }
-
-                        }
-
-                    });
+                    deleteMovie(button);
                 }
             }
         });
 
 
     });
+
+    function deleteMovie(button) {
+
+        $.ajax({
+            url: "/api/movies/" + button.data().movieId,
+            type: "DELETE",
+            success: function () {
+                table.row(button.parents("tr")).remove().draw();
+
+                bootstrapAlert.show('The movie <b>' +
+                        button.data().movieName +
+                        '</b> has successfully been deleted.',
+                        true);
+            },
+            error: function (xhr) {
+                if (xhr.status === 404) {
+                    table.row(button.parents("tr")).remove().draw();
+                    bootstrapAlert.show('The record for ' + button.data().movieName + ' could not be located.',
+                           false);
+                }
+
+            }
+
+        });
+    }
 
 });

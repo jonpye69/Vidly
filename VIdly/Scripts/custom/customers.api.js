@@ -2,6 +2,14 @@
 /// <reference path="../bootbox.js" />
 /// <reference path="~/Scripts/DataTables/jquery.dataTables.js" />
 
+bootstrapAlert.init({
+    selectors: {
+        alert: ".js-alert",
+        icon: ".js-icon",
+        message: ".js-message"
+    }
+});
+
 // Customers api for rest operations
 $(function () {
 
@@ -31,12 +39,14 @@ $(function () {
     }); 
 
 
-        // Delete a movie
-    $("#customers").on("click", ".js-delete", function () {
+    // Delete a customer
+    $("#customers").on("click", ".js-delete", function (e) {
+
         var button = $(this);
+        e.preventDefault();
 
         bootbox.confirm({
-            message: "Are you sure you wish to delete customer <b>" + button.data().customerFullName + "</b>?",
+            message: "Are you sure you wish to delete movie <b>" + button.data().customerFullName + "</b>?",
             buttons: {
                 confirm: {
                     label: '<span class="glyphicon glyphicon-ok-circle"></span> Ok',
@@ -49,33 +59,7 @@ $(function () {
             },
             callback: function (result) {
                 if (result) {
-                    $.ajax({
-                        url: "/api/customers/" + button.data().customerId,
-                        method: "DELETE",
-                        success: function (result) {
-                            if (result.success) {
-                                table.row(button.parents("tr")).remove().draw();
-
-                                bootstrapAlert.show('The customer <b>' +
-                                        button.data().customerFullName +
-                                        '</b> has successfully been deleted.',
-                                        true);
-                            }
-                            else {
-                                bootstrapAlert.show('The following error has occured: ' + result.message,
-                                        false);
-                            }
-                        },
-                        error: function (xhr) {
-                            if (xhr.status === 404) {
-                                table.row(button.parents("tr")).remove().draw();
-                                bootstrapAlert.show('The record for ' + button.data().movieName + ' could not be located.',
-                                       false);
-                            }
-
-                        }
-
-                    });
+                    deleteCustomer(button);
                 }
             }
         });
@@ -83,26 +67,29 @@ $(function () {
 
     });
 
+    function deleteCustomer(button) {
 
+        $.ajax({
+            url: "/api/customers/" + button.data().customerId,
+            type: "DELETE",
+            success: function () {
+                table.row(button.parents("tr")).remove().draw();
 
-    //$("#customers").on("click", ".js-delete", function () {
-    //    var button = $(this);
-    //    //var isSuccess = false;
-    //    bootbox.confirm("Are you sure you wish to delete customer <b>" + button.data().customerFullName + "</b>?", function (result) {
-    //        if (result) {
-    //            $.ajax({
-    //                url: "/api/customers/" + button.data().customerId,
-    //                method: "DELETE",
-    //                success: function () {
-    //                    console.log("success");
-    //                    //isSuccess = true;
-    //                    table.row(button.parents("tr")).remove().draw();
-    //                }
-    //            });
-    //        }
-    //        //if (isSuccess) console.log(button.data().customerFullName + " has been deleted.");
-    //    });
+                bootstrapAlert.show('The customer <b>' +
+                        button.data().customerFullName +
+                        '</b> has successfully been deleted.',
+                        true);
+            },
+            error: function (xhr) {
+                if (xhr.status === 404) {
+                    table.row(button.parents("tr")).remove().draw();
+                    bootstrapAlert.show('The record for ' + button.data().customerFullName + ' could not be located.',
+                           false);
+                }
 
-    //});
+            }
+
+        });
+    }
 
 });
