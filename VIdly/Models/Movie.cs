@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 
 namespace Vidly.Models
 {
@@ -7,9 +8,19 @@ namespace Vidly.Models
     {
         public int Id { get; set; }
 
+        private string name;
+
         [Required]
         [StringLength(255)]
-        public string Name { get; set; }
+        public string Name
+        {
+            get { return name; }
+            set { name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(value); }
+        }
+
+        //[Required]
+        //[StringLength(255)]
+        //public string Name { get; set; }
 
         public Genre Genre { get; set; }
 

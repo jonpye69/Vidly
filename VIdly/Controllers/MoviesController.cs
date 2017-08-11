@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
@@ -10,18 +9,12 @@ using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
-    public class MoviesController : Controller
+    public class MoviesController : BaseController
     {
-        private ApplicationDbContext _context;
 
         public MoviesController()
         {
             _context = new ApplicationDbContext();
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            _context.Dispose();
         }
 
         // GET: Customers
@@ -92,7 +85,14 @@ namespace Vidly.Controllers
             else
             {
                 var existingMovie = _context.Movies.Single(m => m.Id == movie.Id);
-                Mapper.Map(movie, existingMovie);
+
+                // Automapper is just a headache, mapping exception info is so poor
+                //Mapper.Map(movie, existingMovie);
+
+                existingMovie.Name = movie.Name;
+                existingMovie.ReleaseDate = movie.ReleaseDate;
+                existingMovie.GenreId = movie.GenreId;
+                existingMovie.NumberInStock = movie.NumberInStock;
             }
 
             try

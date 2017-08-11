@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
@@ -69,12 +70,28 @@ namespace Vidly.Controllers
             else
             {
                 var existingCustomer = _context.Customers.Single(c => c.Id == customerFormVM.Customer.Id);
-                Mapper.Map(customerFormVM, existingCustomer);
+
+                // Automapper is just a headache, mapping exception info is so poor
+                //Mapper.Map(customerFormVM, existingCustomer);
+
+                existingCustomer.Name = customerFormVM.Customer.Name;
+                existingCustomer.BirthDate = customerFormVM.Customer.BirthDate;
+                existingCustomer.MembershipTypeId = customerFormVM.Customer.MembershipTypeId;
+                existingCustomer.IsSubscribedToNewsletter = customerFormVM.Customer.IsSubscribedToNewsletter;
             }
 
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                // TODO: would pump this out to the UI possibly, or at very least, log it!
+                Console.WriteLine(e);
+            }
 
-            return RedirectToAction("Index", "Customers");
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(int id)
