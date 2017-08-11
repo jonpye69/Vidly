@@ -40,7 +40,7 @@
             {
                 <tr>
                     <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new {id = customer.Id}, null)</td>
-                    <td>@customer.MembershipType.Name</td>
+                    <td>@customer.MembershipOption.Name</td>
                     <td><button data-customer-full-name="@customer.Name" data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button></td>
                 </tr>
             }*@

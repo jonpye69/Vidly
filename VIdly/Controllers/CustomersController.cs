@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using System;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
@@ -19,7 +21,7 @@ namespace Vidly.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 Customer = new Customer(),
-                MembershipTypes = membershipTypes
+                MembershipOptions = membershipTypes
             };
 
             return View("CustomerForm", viewModel);
@@ -28,7 +30,7 @@ namespace Vidly.Controllers
         // GET: Customers
         public ViewResult Index()
         {
-            //var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            //var customers = _context.Customers.Include(c => c.MembershipOption).ToList();
 
             //return View(customers);
             return View();
@@ -46,36 +48,92 @@ namespace Vidly.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(CustomerFormViewModel customerFormVM)
+        public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)
             {
                 var viewModel = new CustomerFormViewModel
                 {
-                    Customer = customerFormVM.Customer,
-                    MembershipTypes = _context.MembershipTypes.ToList()
+                    Customer = customer,
+                    MembershipOptions = _context.MembershipTypes.ToList()
                 };
 
                 return View("CustomerForm", viewModel);
             }
 
-            if (customerFormVM?.Customer == null)
+            if (customer == null)
                 return HttpNotFound();
 
-            if (customerFormVM.Customer.Id == 0)
+            if (customer.Id == 0)
             {
-                _context.Customers.Add(customerFormVM.Customer);
+                _context.Customers.Add(customer);
             }
             else
             {
-                var existingCustomer = _context.Customers.Single(c => c.Id == customerFormVM.Customer.Id);
-                Mapper.Map(customerFormVM, existingCustomer);
+                var existingCustomer = _context.Customers.Single(c => c.Id == customer.Id);
+                Mapper.Map(customer, existingCustomer);
+
+                // Automapper is so unhelpful resolving mapping issues!
+                //Mapper.Map(customerFormVM, existingCustomer);
+
+                //existingCustomer.Name = customerFormVM.Customer.Name;
+                //existingCustomer.BirthDate = customerFormVM.Customer.BirthDate;
+                //existingCustomer.MembershipTypeId = customerFormVM.Customer.MembershipTypeId;
+                //existingCustomer.IsSubscribedToNewsletter = customerFormVM.Customer.IsSubscribedToNewsletter;
             }
 
-            _context.SaveChanges();
+            try
+            {
+                _context.SaveChanges();
+            }
+            catch (DbEntityValidationException e)
+            {
+                // TODO: would pump this out to the UI possibly, or at very least, log it!
+                Console.WriteLine(e);
+            }
 
-            return RedirectToAction("Index", "Customers");
+            return RedirectToAction("Index");
         }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Save(CustomerFormViewModel customerFormVM)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        var viewModel = new CustomerFormViewModel
+        //        {
+        //            Customer = customerFormVM.Customer,
+        //            MembershipOptions = _context.MembershipTypes.ToList()
+        //        };
+
+        //        return View("CustomerForm", viewModel);
+        //    }
+
+        //    if (customerFormVM?.Customer == null)
+        //        return HttpNotFound();
+
+        //    if (customerFormVM.Customer.Id == 0)
+        //    {
+        //        _context.Customers.Add(customerFormVM.Customer);
+        //    }
+        //    else
+        //    {
+        //        var existingCustomer = _context.Customers.Single(c => c.Id == customerFormVM.Customer.Id);
+
+        //        // Automapper is so unhelpful resolving mapping issues!
+        //        //Mapper.Map(customerFormVM, existingCustomer);
+
+        //        existingCustomer.Name = customerFormVM.Customer.Name;
+        //        existingCustomer.BirthDate = customerFormVM.Customer.BirthDate;
+        //        existingCustomer.MembershipTypeId = customerFormVM.Customer.MembershipTypeId;
+        //        existingCustomer.IsSubscribedToNewsletter = customerFormVM.Customer.IsSubscribedToNewsletter;
+        //    }
+
+        //    _context.SaveChanges();
+
+        //    return RedirectToAction("Index", "Customers");
+        //}
 
         public ActionResult Edit(int id)
         {
@@ -87,7 +145,7 @@ namespace Vidly.Controllers
             var viewModel = new CustomerFormViewModel
             {
                 Customer = customer,
-                MembershipTypes = _context.MembershipTypes.ToList()
+                MembershipOptions = _context.MembershipTypes.ToList()
             };
 
             return View("CustomerForm", viewModel);

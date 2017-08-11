@@ -19,6 +19,11 @@ namespace Vidly
 
             // Auto map (VM's to domain models) plus domain models > domain models, and DM > DTO (and vice versa) for web objects
             AutoMapperWebConfiguration.Configure();
+
+            /* Allow us to title case name properties - would use this as is, would be madness,
+             *  but left in and commented as will use a custom model binder for something! 
+             */
+            //ModelBinders.Binders.DefaultBinder = new TitleCaseModelBinder();
         }
     }
 }

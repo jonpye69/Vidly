@@ -19,15 +19,18 @@ $(function () {
             url: "/api/customers",
             dataSrc: ""
         },
+        "language": {
+            "emptyTable": "No Customers available in table"
+        },
         columns: [
             {
                 data: "name",
                 render: function(data, type, customer) {
-                    return "<a href='/customers/edit/" + customer.id + "'>" + customer.name;
+                    return "<a href='/customers/edit/" + customer.id + "'>" + customer.name + "</a>";
                 }
             },
             {
-                data: "membershipType.name"  
+                data: "membershipOption.name"  
             },
             {
                 data: "id",

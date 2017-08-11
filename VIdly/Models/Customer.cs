@@ -8,6 +8,16 @@ namespace Vidly.Models
     {
         public int Id { get; set; }
 
+        //private string name;
+
+        //[Required]
+        //[StringLength(255)]
+        //public string Name
+        //{
+        //    get { return name; }
+        //    set { name = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(value); }
+        //}
+
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
@@ -19,9 +29,10 @@ namespace Vidly.Models
 
         public bool IsSubscribedToNewsletter { get; set; }
 
-        public MembershipType MembershipType { get; set; }
+        public MembershipType MembershipOption { get; set; }
 
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
+
     }
 }

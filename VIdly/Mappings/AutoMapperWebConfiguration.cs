@@ -27,14 +27,23 @@ namespace Vidly.Mappings
             Mapper.Initialize(cfg =>
             {
                 cfg.CreateMap<CustomerFormViewModel, Customer>()
+                    .ForSourceMember(s => s.MembershipOptions, opt => opt.Ignore())
                     .ForMember(d => d.Name,
                         o => o.MapFrom(s => s.Customer.Name))
                     .ForMember(d => d.BirthDate,
                         o => o.MapFrom(s => s.Customer.BirthDate))
                     .ForMember(d => d.IsSubscribedToNewsletter,
                         o => o.MapFrom(s => s.Customer.IsSubscribedToNewsletter))
-                    .ForMember(d => d.MembershipTypeId,
-                        o => o.MapFrom(s => s.Customer.MembershipTypeId));
+                    //.ForMember(d => d.Id,
+                    //o => o.MapFrom(s => s.Customer.Id))
+                    //.ForMember(d => d.MembershipTypeId,
+                    //    o => o.MapFrom(s => s.Customer.MembershipTypeId))
+
+                    //.ForMember(d => d.MembershipOption,
+                    //    o => o.MapFrom(s => s.Customer.MembershipOption))
+                    .ForMember(d => d.Id, opt => opt.Ignore())
+                    .ForMember(d => d.MembershipTypeId, opt => opt.Ignore())
+                    .ForMember(d => d.MembershipOption, opt => opt.Ignore());
             });
         }
 
@@ -66,7 +75,7 @@ namespace Vidly.Mappings
 
 
 
-        // Seriously Automapper - why cant you deal with seperate initializations of multiple DTO's of differing types???  But nowhere on the net explains this!!!
+        // Seriously Automapper - why cant you deal with seperate initializations of multiple DTO's of differing types???  But no documentation explains this!!!
         //private static void ConfigureMovieDtoObjectMapping()
         //{
         //    Mapper.Initialize(cfg =>

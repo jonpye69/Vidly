@@ -26,7 +26,7 @@ $(function () {
             {
                 data: "name",
                 render: function (data, type, movie) {
-                    return "<a href='/movies/edit/" + movie.id + "'>" + movie.name;
+                    return "<a href='/movies/edit/" + movie.id + "'>" + movie.name + "</a>";
                 }
             },
             {
@@ -66,9 +66,9 @@ $(function () {
             }
         });
 
-
     });
 
+    // Actually delete the movie
     function deleteMovie(button) {
 
         $.ajax({
