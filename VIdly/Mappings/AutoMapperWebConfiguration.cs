@@ -12,7 +12,7 @@ namespace Vidly.Mappings
             ConfigureCustomerVmObjectMapping();
             ConfigureMovieVmObjectMapping();
 
-            //ConfigureCustomerObjectMapping();
+            //ConfigureDefaultObjectMappings();
 
             ConfigureDtoObjectMappings();
 
@@ -56,14 +56,14 @@ namespace Vidly.Mappings
             });
         }
 
-        //private static void ConfigureCustomerObjectMapping()
+        //private static void ConfigureDefaultObjectMappings()
         //{
         //    Mapper.Initialize(cfg =>
         //    {
         //        cfg.CreateMap<Customer, Customer>();
+        //        cfg.CreateMap<Movie, Movie>();
         //    });
         //}
-
 
 
         // Seriously Automapper - why cant you deal with seperate initializations of multiple DTO's of differing types???  But nowhere on the net explains this!!!

@@ -71,8 +71,10 @@ namespace Vidly.Controllers
             {
                 var existingCustomer = _context.Customers.Single(c => c.Id == customerFormVM.Customer.Id);
 
-                // Automapper is just a headache, mapping exception info is so poor
+                // Automapper is just a headache, mapping exception info is so poor, or just does not allow EF to update db even when obj updates!
                 //Mapper.Map(customerFormVM, existingCustomer);
+                //Mapper.Map(customerFormVM.Customer, existingCustomer);
+                //existingCustomer = Mapper.Map<Customer, Customer>(customerFormVM.Customer);
 
                 existingCustomer.Name = customerFormVM.Customer.Name;
                 existingCustomer.BirthDate = customerFormVM.Customer.BirthDate;

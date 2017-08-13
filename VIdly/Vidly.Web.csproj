@@ -197,7 +197,7 @@
     <Compile Include="Controllers\SpaController.cs" />
     <Compile Include="DTOs\CustomerDto.cs" />
     <Compile Include="DTOs\GenreDto.cs" />
-    <Compile Include="DTOs\MembershipTypeDTO.cs" />
+    <Compile Include="DTOs\MembershipTypeDto.cs" />
     <Compile Include="DTOs\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -258,6 +258,10 @@
     <Compile Include="Migrations\201707021550125_UpdateMovieVmAndControllerViewData.cs" />
     <Compile Include="Migrations\201707021550125_UpdateMovieVmAndControllerViewData.Designer.cs">
       <DependentUpon>201707021550125_UpdateMovieVmAndControllerViewData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708131305570_SeedUsers.cs" />
+    <Compile Include="Migrations\201708131305570_SeedUsers.Designer.cs">
+      <DependentUpon>201708131305570_SeedUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -584,6 +588,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707021550125_UpdateMovieVmAndControllerViewData.resx">
       <DependentUpon>201707021550125_UpdateMovieVmAndControllerViewData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708131305570_SeedUsers.resx">
+      <DependentUpon>201708131305570_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
