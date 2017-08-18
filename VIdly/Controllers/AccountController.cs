@@ -275,6 +275,8 @@ namespace Vidly.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
+            ControllerContext.HttpContext.Session.RemoveAll();
+
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
@@ -342,6 +344,12 @@ namespace Vidly.Controllers
                     ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
                     return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { Email = loginInfo.Email });
             }
+        }
+
+        [AllowAnonymous]
+        public ActionResult ExternalLoginCallbackRedirect(string returnUrl)
+        {
+            return RedirectPermanent("/Account/ExternalLoginCallback");
         }
 
         //
@@ -469,6 +477,9 @@ namespace Vidly.Controllers
 
             public override void ExecuteResult(ControllerContext context)
             {
+                // this line fixed the problem with returing null
+                context.RequestContext.HttpContext.Response.SuppressFormsAuthenticationRedirect = true;
+
                 var properties = new AuthenticationProperties { RedirectUri = RedirectUri };
                 if (UserId != null)
                 {

@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Google;
 using Owin;
 using System;
 using Vidly.Models;
@@ -57,11 +58,25 @@ namespace Vidly
                appId: "338676699922043",
                appSecret: "059ea9453bd1c20fdbb0a3a6b845a0a4");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions
             //{
-            //    ClientId = "",
-            //    ClientSecret = ""
+            //    ClientId = "903568851117-tifojlfb5o5tjjg97ljn44m27miptcr8.apps.googleusercontent.com",
+            //    ClientSecret = "Yxa9591otJBskS5FDdhHNo62"
             //});
+
+            //var googleOAuth2AuthenticationOptions = new GoogleOAuth2AuthenticationOptions
+            //{
+            //    ClientId = "903568851117-tifojlfb5o5tjjg97ljn44m27miptcr8.apps.googleusercontent.com",
+            //    ClientSecret = "Yxa9591otJBskS5FDdhHNo62"
+            //};
+            //app.UseGoogleAuthentication(googleOAuth2AuthenticationOptions);
+
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "903568851117-tifojlfb5o5tjjg97ljn44m27miptcr8.apps.googleusercontent.com",
+                ClientSecret = "Yxa9591otJBskS5FDdhHNo62",
+                Provider = new GoogleOAuth2AuthenticationProvider()
+            });
         }
     }
 }
