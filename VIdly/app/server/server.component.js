@@ -7,21 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var forms_1 = require("@angular/forms");
-var app_component_1 = require("./app.component");
-var server_component_1 = require("./server/server.component");
-var AppModule = (function () {
-    function AppModule() {
+var ServerComponent = (function () {
+    function ServerComponent() {
+        this.name = 'jon pye';
+        this.model = 'tdi';
     }
-    return AppModule;
+    return ServerComponent;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-        declarations: [app_component_1.AppComponent, server_component_1.ServerComponent],
-        bootstrap: [app_component_1.AppComponent]
+ServerComponent = __decorate([
+    core_1.Component({
+        selector: 'app-server',
+        templateUrl: './app/server/server.component.html'
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], ServerComponent);
+exports.ServerComponent = ServerComponent;
+//# sourceMappingURL=server.component.js.map

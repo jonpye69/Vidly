@@ -9,16 +9,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
-        this.framework = 'AngularJS';
-        this.version = '2';
+        this.framework = 'Angular';
+        this.version = '2.0';
         this.logoColour = 'Red';
+        this.logoLetter = 'A';
+        this.textInput = '';
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "<h1>Framework: {{ framework }}</h1>\n            <h2>Version: {{ version }}</h2>\n            <hr />\n            <h2>Primary Logo Colour: {{ logoColour }}</h2>"
+        templateUrl: './app/app.component.html'
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

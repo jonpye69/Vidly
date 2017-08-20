@@ -29,7 +29,7 @@ $(obj.classes.menuListItemLink).on(obj.actions.click, function () {
     var menuPosition = $(obj.classes.menu).position().top;
 
     var scrollAnchor = $(this).data(obj.data.scroll),
-        scrollPoint = $('div[data-anchor="' + scrollAnchor + '"]').offset().top - 58; //28
+        scrollPoint = $('div[data-anchor="' + scrollAnchor + '"]').offset().top - 58; //58 28
 
     $(obj.animateElements).animate(
         {
@@ -52,7 +52,7 @@ $(window).scroll(function () {
     if (windscroll >= 48) { //100
         $(obj.classes.menu).addClass(obj.classes.menuFixed);
         $(obj.classes.containerDiv).each(function (i) {
-            if ($(this).position().top <= windscroll - 45) {    //60
+            if ($(this).position().top <= windscroll - 45) {    //45 60
 
                 if (!isAnimating) {
                     $(obj.classes.menuListItemActive).removeClass(obj.classes.menuActive);

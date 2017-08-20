@@ -25,7 +25,7 @@ namespace Vidly.Utilities.Extensions
             return age;
         }
 
-        public static string ToVDateTimeString(this DateTime? inputDate)
+        public static string ToDateTimeString(this DateTime? inputDate)
         {
             return inputDate?.ToString("dd/MM/yyyy") ?? Defaults.EmptyText;
         }

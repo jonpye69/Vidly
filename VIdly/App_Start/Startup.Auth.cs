@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Google;
 using Owin;
 using System;
 using Vidly.Models;
@@ -57,11 +58,11 @@ namespace Vidly
                appId: "338676699922043",
                appSecret: "059ea9453bd1c20fdbb0a3a6b845a0a4");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions
+            {
+                ClientId = "a",
+                ClientSecret = "a"
+            });
         }
     }
 }
