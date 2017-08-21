@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
 
+import { EscapeHtmlPipe } from './utils/asHtml.pipe';
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, ServerComponent, ServersComponent ],
+  declarations: [AppComponent, ServerComponent, ServersComponent, EscapeHtmlPipe ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

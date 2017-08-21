@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    word-wrap: break-word;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -36,6 +37,10 @@ textarea {
 .input-validation-error {
     border: 1px solid red;
 }
+
+/*h1 {
+    word-wrap: break-word;
+}*/
 
 /* bs-callout */
 
