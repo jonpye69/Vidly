@@ -6,6 +6,6 @@
 })
 
 export class ServerComponent {
-    name : String= 'jon pye';
+    make : String = 'Golf';
     model: String = 'tdi';
 }

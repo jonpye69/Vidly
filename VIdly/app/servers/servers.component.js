@@ -7,18 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ServerComponent = (function () {
-    function ServerComponent() {
-        this.make = 'Golf';
-        this.model = 'tdi';
+var ServersComponent = (function () {
+    function ServersComponent() {
     }
-    return ServerComponent;
+    return ServersComponent;
 }());
-ServerComponent = __decorate([
+ServersComponent = __decorate([
     core_1.Component({
-        selector: 'app-server',
-        templateUrl: './app/server/server.component.html'
+        selector: 'app-servers',
+        templateUrl: './app/servers/servers.component.html'
     })
-], ServerComponent);
-exports.ServerComponent = ServerComponent;
-//# sourceMappingURL=server.component.js.map
+], ServersComponent);
+exports.ServersComponent = ServersComponent;
+//# sourceMappingURL=servers.component.js.map
