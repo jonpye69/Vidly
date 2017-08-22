@@ -22,7 +22,7 @@ var ServersComponent = (function () {
         this.username = '';
         setTimeout(function () {
             _this.allowNewServer = true;
-        }, 2000);
+        }, 3000);
     }
     ServersComponent.prototype.getServerStatus = function () {
         return this.serverStatus;

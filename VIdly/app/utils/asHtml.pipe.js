@@ -15,8 +15,8 @@ var EscapeHtmlPipe = (function () {
     function EscapeHtmlPipe(sanitizer) {
         this.sanitizer = sanitizer;
     }
-    EscapeHtmlPipe.prototype.transform = function (html) {
-        return this.sanitizer.bypassSecurityTrustHtml(html);
+    EscapeHtmlPipe.prototype.transform = function (content) {
+        return this.sanitizer.bypassSecurityTrustHtml(content);
     };
     return EscapeHtmlPipe;
 }());

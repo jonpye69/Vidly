@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-servers',
   templateUrl: './app/servers/servers.component.html'
 })
+
 export class ServersComponent {
     serverId: number = 10;
     serverStatus: string = 'offline';
@@ -19,7 +20,7 @@ export class ServersComponent {
     constructor() {
         setTimeout(() => {
             this.allowNewServer = true;
-        }, 2000);
+        }, 3000);
     }
 
     getServerStatus() {

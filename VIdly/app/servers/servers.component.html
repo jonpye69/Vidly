@@ -16,9 +16,9 @@
 <!-- using a structural directive > ngIf -->
 <div class="alert alert-success" *ngIf="serverCreated">Server {{ serverName }} was created.</div>
 <!--<div class="alert alert-success" *ngIf="serverCreated; else noServer">Server {{ serverName }} was created.</div>
-<ng-template #noServer>
+<ng-container #noServer>
     <div class="alert alert-danger">No server was created.</div>    
-</ng-template>-->
+</ng-container>-->
 
 
 <p>Example where raw parsed: {{ serverCreationStatus }}</p>

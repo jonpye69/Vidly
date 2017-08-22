@@ -6,6 +6,14 @@
 })
 
 export class ServerComponent {
-    make : String = 'Golf';
-    model: String = 'tdi';
+    serverId : number = 10;
+    serverStatus: string = 'offline';
+
+    constructor() {
+        this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
+    }
+
+    getColour() {
+        return this.serverStatus === 'online' ? 'green' : 'red';
+    }
 }
