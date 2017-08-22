@@ -1,3 +1,4 @@
+<h1>Servers Component</h1>
 <p>Server with ID {{ serverId }} is {{ serverStatus }} - via method call: {{ getServerStatus() }}</p>
 <p>{{ 'string interpolation in curly braces as a static string' }}</p>
 <hr />
@@ -12,9 +13,17 @@
 <div class="form-group">
     <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
 </div>
+<!-- using a structural directive > ngIf -->
+<div class="alert alert-success" *ngIf="serverCreated">Server {{ serverName }} was created.</div>
+<!--<div class="alert alert-success" *ngIf="serverCreated; else noServer">Server {{ serverName }} was created.</div>
+<ng-template #noServer>
+    <div class="alert alert-danger">No server was created.</div>    
+</ng-template>-->
+
 
 <p>Example where raw parsed: {{ serverCreationStatus }}</p>
 <p [innerHtml]="serverCreationStatus | asHtmlPipe"></p>
+
 
 <p [innerText]="(allowNewServer.toString() | uppercase) + ': property binding (with filter)'"></p>
 <p>{{ allowNewServer.toString() | uppercase }}: string interpolation (with filter)</p>
@@ -22,18 +31,17 @@
 
 <div class="container">
     <div class="row">
-        <label>Username</label>
-        <input type="text" class="form-control" [(ngModel)]="username" />
+        <input type="text" class="form-control" [(ngModel)]="username" placeholder="Enter Username..." />
     </div>
     <div class="row">
         <p>{{ username }}</p>
     </div>
     <div class="row">
-        <button class="btn btn-primary" [disabled]="username === ''" (click)="username = ''">Add Username</button> (property binding ==='' and event binding set var to empty string)
+        <button class="btn btn-primary" [disabled]="username.trim() === ''" (click)="username = ''">Reset User</button> (property binding ==='' and event binding set var to empty string)
     </div>
     <br />
     <div class="row">
-        <button class="btn btn-primary" [disabled]="!username" (click)="onResetUsername()">Add Username</button>(property binding ! and event binding, call function)
+        <button class="btn btn-primary" [disabled]="!username.trim()" (click)="onResetUsername()">Reset User</button>(property binding ! and event binding, call function)
     </div>
 </div>
 

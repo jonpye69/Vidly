@@ -104,3 +104,10 @@ textarea {
 .modal-glyph {
     padding-right: 5px; 
 }
+
+/* angular related pages */
+
+.angular-head img {
+    float: left;
+    margin-top: -45px;
+}

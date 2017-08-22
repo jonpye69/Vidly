@@ -11,6 +11,7 @@ export class ServersComponent {
     allowNewServer: boolean = false;
 
     serverCreationStatus: string = 'No server created';
+    serverCreated: boolean = false;
     serverName: string = 'init server name';
 
     username: string = '';
@@ -30,6 +31,7 @@ export class ServersComponent {
     }
 
     onCreateServer() {
+        this.serverCreated = true;
         this.serverCreationStatus = 'Server <b>' + this.serverName + '</b> was created!';
     }
 

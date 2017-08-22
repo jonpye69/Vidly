@@ -17,6 +17,7 @@ var ServersComponent = (function () {
         this.serverStatus = 'offline';
         this.allowNewServer = false;
         this.serverCreationStatus = 'No server created';
+        this.serverCreated = false;
         this.serverName = 'init server name';
         this.username = '';
         setTimeout(function () {
@@ -30,6 +31,7 @@ var ServersComponent = (function () {
         return this.allowNewServer.toString();
     };
     ServersComponent.prototype.onCreateServer = function () {
+        this.serverCreated = true;
         this.serverCreationStatus = 'Server <b>' + this.serverName + '</b> was created!';
     };
     ServersComponent.prototype.onUpdateServerName = function (event) {
