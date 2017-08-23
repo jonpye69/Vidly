@@ -10,8 +10,8 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
-var server_component_1 = require("./server/server.component");
-var servers_component_1 = require("./servers/servers.component");
+var server_component_1 = require("./playground/server/server.component");
+var servers_component_1 = require("./playground/servers/servers.component");
 var asHtml_pipe_1 = require("./utils/asHtml.pipe");
 var AppModule = (function () {
     function AppModule() {

@@ -10,6 +10,11 @@ namespace Vidly.Controllers
             return View();
         }
 
+        public ActionResult Angular()
+        {
+            return View("AngularPlay");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
