@@ -21,6 +21,7 @@ namespace Vidly
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                //, constraints: new { controller = "Home|Account|Upload|Resource" } // this is basically a regular expression
             );
         }
     }

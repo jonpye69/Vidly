@@ -13,6 +13,14 @@ var app_component_1 = require("./app.component");
 var server_component_1 = require("./playground/server/server.component");
 var servers_component_1 = require("./playground/servers/servers.component");
 var asHtml_pipe_1 = require("./utils/asHtml.pipe");
+var media_component_1 = require("./media.component");
+var playground_component_1 = require("./playground.component");
+var router_1 = require("@angular/router");
+var appRoutes = [
+    { path: '', redirectTo: 'Media', pathMatch: 'full' },
+    { path: 'Media', component: media_component_1.AppMedia },
+    { path: 'Playground', component: playground_component_1.AppPlayground }
+];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,8 +28,8 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-        declarations: [app_component_1.AppComponent, server_component_1.ServerComponent, servers_component_1.ServersComponent, asHtml_pipe_1.EscapeHtmlPipe],
+        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule.forRoot(appRoutes)],
+        declarations: [app_component_1.AppComponent, server_component_1.ServerComponent, servers_component_1.ServersComponent, asHtml_pipe_1.EscapeHtmlPipe, media_component_1.AppMedia, playground_component_1.AppPlayground],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

@@ -8,9 +8,20 @@ import { ServersComponent } from './playground/servers/servers.component';
 
 import { EscapeHtmlPipe } from './utils/asHtml.pipe';
 
+import { AppMedia } from './media.component'
+import { AppPlayground } from './playground.component'
+
+import { RouterModule, Routes } from '@angular/router';
+
+const appRoutes: Routes = [
+    { path: '', redirectTo: 'Media', pathMatch: 'full' },
+    { path: 'Media', component: AppMedia },
+    { path: 'Playground', component: AppPlayground }
+];
+
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [AppComponent, ServerComponent, ServersComponent, EscapeHtmlPipe ],
-  bootstrap:    [ AppComponent ]
+    imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
+    declarations: [AppComponent, ServerComponent, ServersComponent, EscapeHtmlPipe, AppMedia, AppPlayground ],
+    bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -10,10 +10,23 @@ namespace Vidly.Controllers
             return View();
         }
 
-        public ActionResult Angular()
-        {
-            return View("AngularPlay");
-        }
+        //public ActionResult Angular()
+        //{
+        //    return View("AngularPlay");
+        //}
+
+
+        //public ActionResult Product()
+        //{
+        //    return View("Index");
+        //}
+
+        //public ActionResult Inventory()
+        //{
+        //    return View("Index");
+        //}
+
+
 
         public ActionResult About()
         {

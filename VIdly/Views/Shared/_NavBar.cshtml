@@ -14,7 +14,9 @@
                 <li>@Html.ActionLink("About", "About", "Home")</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
 
-                <li>@Html.ActionLink("Angular Play", "Angular", "Home")</li>
+                @*@Html.Raw(File.ReadAllText(Server.MapPath("~/app/links.component.html")))*@
+
+                @*<li>@Html.ActionLink("Angular Play", "Angular", "Home")</li>*@
                 <li>@Html.ActionLink("Films", "Index", "Movies")</li>
                 <li>@Html.ActionLink("SPA Basic", "Index", "Spa")</li>
                 <li></li>

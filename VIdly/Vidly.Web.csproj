@@ -289,8 +289,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.component.html" />
+    <Content Include="app\playground.component.html" />
+    <Content Include="app\links.component.html" />
     <Content Include="app\playground\servers\servers.component.html" />
     <Content Include="app\playground\server\server.component.html" />
+    <Content Include="app\media.component.html" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap-united.css" />
@@ -555,6 +558,7 @@
     <Content Include="Views\Home\AngularPlay.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app\media\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -627,9 +631,11 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\playground.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\playground\servers\servers.component.ts" />
     <TypeScriptCompile Include="app\playground\server\server.component.ts" />
+    <TypeScriptCompile Include="app\media.component.ts" />
     <TypeScriptCompile Include="app\utils\asHtml.pipe.ts" />
   </ItemGroup>
   <PropertyGroup>

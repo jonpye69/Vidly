@@ -1,6 +1,5 @@
 ﻿using Microsoft.Owin;
 using Owin;
-using Vidly.Mappings;
 
 [assembly: OwinStartupAttribute(typeof(Vidly.Startup))]
 namespace Vidly

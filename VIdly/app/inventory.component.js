@@ -7,27 +7,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
+var AppInventory = (function () {
+    function AppInventory() {
         this.framework = 'Angular';
         this.version = '2.0';
         this.logoColour = 'Red';
         this.logoLetter = 'A';
         this.textInput = '';
     }
-    return AppComponent;
+    return AppInventory;
 }());
-AppComponent = __decorate([
+AppInventory = __decorate([
     core_1.Component({
         selector: 'my-app',
-        templateUrl: './app/links.component.html'
-        //templateUrl: './app/app.component.html' 
-        //template: `<ul>
-        //    <li><a [routerLink] = "['/Product']">Product</a></li>
-        //    <li><a [routerLink] = "['/Inventory']">Inventory</a></li>
-        // </ul>
-        // <router-outlet></router-outlet>`
+        templateUrl: './app/inventory.component.html'
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], AppInventory);
+exports.AppInventory = AppInventory;
+//# sourceMappingURL=Inventory.component.js.map
