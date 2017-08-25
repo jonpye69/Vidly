@@ -289,11 +289,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.component.html" />
-    <Content Include="app\playground.component.html" />
+    <Content Include="app\media\character-list\character-edit\character-edit.component.html" />
+    <Content Include="app\media\character-list\character-list.component.html" />
+    <Content Include="app\media\films\film-detail\film-detail.component.html" />
+    <Content Include="app\media\films\film-list\film-item\film-item.component.html" />
+    <Content Include="app\media\films\film-list\film-list.component.html" />
+    <Content Include="app\media\films\films.component.html" />
+    <Content Include="app\playground\playground.component.html" />
     <Content Include="app\links.component.html" />
     <Content Include="app\playground\servers\servers.component.html" />
     <Content Include="app\playground\server\server.component.html" />
-    <Content Include="app\media.component.html" />
+    <Content Include="app\media\media.component.html" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap-united.css" />
@@ -428,6 +434,7 @@
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="package.json" />
+    <Content Include="app\media\header\header.component.html" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom\functions.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
@@ -558,7 +565,6 @@
     <Content Include="Views\Home\AngularPlay.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\media\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
@@ -631,11 +637,19 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
-    <TypeScriptCompile Include="app\playground.component.ts" />
+    <TypeScriptCompile Include="app\media\character-list\character-edit\character-edit.component.ts" />
+    <TypeScriptCompile Include="app\media\character-list\character-list.component.ts" />
+    <TypeScriptCompile Include="app\media\films\film-detail\film-detail.component.ts" />
+    <TypeScriptCompile Include="app\media\films\film-list\film-item\film-item.component.ts" />
+    <TypeScriptCompile Include="app\media\films\film-list\film-list.component.ts" />
+    <TypeScriptCompile Include="app\media\films\film.model.ts" />
+    <TypeScriptCompile Include="app\media\films\films.component.ts" />
+    <TypeScriptCompile Include="app\media\header\header.component.ts" />
+    <TypeScriptCompile Include="app\playground\playground.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\playground\servers\servers.component.ts" />
     <TypeScriptCompile Include="app\playground\server\server.component.ts" />
-    <TypeScriptCompile Include="app\media.component.ts" />
+    <TypeScriptCompile Include="app\media\media.component.ts" />
     <TypeScriptCompile Include="app\utils\asHtml.pipe.ts" />
   </ItemGroup>
   <PropertyGroup>

@@ -2,7 +2,7 @@
 
 @Component({
     selector: 'my-app',
-    templateUrl: './app/media.component.html'
+    templateUrl: './app/media/media.component.html'
 })
-export class AppMedia {
+export class MediaComponent {
 }

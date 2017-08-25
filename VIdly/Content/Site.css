@@ -101,6 +101,10 @@ textarea {
     color: #5bc0de;
 }
 
+.row {
+    margin-bottom: 10px !important;
+}
+
 .modal-glyph {
     padding-right: 5px; 
 }
@@ -109,10 +113,14 @@ textarea {
 
 .angular-head img {
     float: left;
-    margin-top: -45px;
+    margin-top: -25px;
 }
 
 .angular-nav {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.media-nav ul li a {
+    color: #fff !important;
 }

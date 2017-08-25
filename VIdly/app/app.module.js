@@ -9,17 +9,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
+var http_1 = require("@angular/http");
+// Training
 var app_component_1 = require("./app.component");
 var server_component_1 = require("./playground/server/server.component");
 var servers_component_1 = require("./playground/servers/servers.component");
+// Custom filter
 var asHtml_pipe_1 = require("./utils/asHtml.pipe");
-var media_component_1 = require("./media.component");
-var playground_component_1 = require("./playground.component");
+// To hold movie app
+var media_component_1 = require("./media/media.component");
+// To hold training stuff
+var playground_component_1 = require("./playground/playground.component");
+// Movie app sub components
+var header_component_1 = require("./media/header/header.component");
+var films_component_1 = require("./media/films/films.component");
+var film_list_component_1 = require("./media/films/film-list/film-list.component");
+var film_item_component_1 = require("./media/films/film-list/film-item/film-item.component");
+var film_detail_component_1 = require("./media/films/film-detail/film-detail.component");
+var character_list_component_1 = require("./media/character-list/character-list.component");
+var character_edit_component_1 = require("./media/character-list/character-edit/character-edit.component");
 var router_1 = require("@angular/router");
 var appRoutes = [
     { path: '', redirectTo: 'Media', pathMatch: 'full' },
-    { path: 'Media', component: media_component_1.AppMedia },
-    { path: 'Playground', component: playground_component_1.AppPlayground }
+    { path: 'Media', component: media_component_1.MediaComponent },
+    { path: 'Playground', component: playground_component_1.PlaygroundComponent }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -28,8 +41,13 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, router_1.RouterModule.forRoot(appRoutes)],
-        declarations: [app_component_1.AppComponent, server_component_1.ServerComponent, servers_component_1.ServersComponent, asHtml_pipe_1.EscapeHtmlPipe, media_component_1.AppMedia, playground_component_1.AppPlayground],
+        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes)],
+        declarations: [
+            app_component_1.AppComponent, server_component_1.ServerComponent, servers_component_1.ServersComponent, asHtml_pipe_1.EscapeHtmlPipe,
+            media_component_1.MediaComponent, playground_component_1.PlaygroundComponent, header_component_1.HeaderComponent,
+            films_component_1.FilmsComponent, film_list_component_1.FilmListComponent, film_item_component_1.FilmItemComponent, film_detail_component_1.FilmDetailComponent,
+            character_list_component_1.CharacterListComponent, character_edit_component_1.CharacterEditComponent
+        ],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

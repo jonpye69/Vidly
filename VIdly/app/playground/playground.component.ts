@@ -2,9 +2,9 @@
 
 @Component({
     selector: 'my-app',
-    templateUrl: './app/playground.component.html'
+    templateUrl: './app/playground/playground.component.html'
 })
-export class AppPlayground {
+export class PlaygroundComponent {
     framework = 'Angular';
     version = '2.0';
     logoColour = 'Red';
