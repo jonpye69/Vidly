@@ -1,7 +1,15 @@
 ﻿<div class="row">
-    <div class="col-xs-10">
-        <app-character-edit></app-character-edit>
-        <hr/>
-        <p>The list</p>
-    </div>         
+    <div class="col-xs-12">
+        <app-character-edit (characterAdded)="onCharacterAdded($event)"></app-character-edit>
+    </div>
+</div>
+<hr /> 
+<div class="row">
+    <div class="col-xs-5">
+        <ul class="no-pad-left">
+            <a class="list-group-item" style="cursor: pointer" *ngFor="let character of characters">
+                {{ character.name }} ({{ character.age }})
+            </a>
+        </ul>
+    </div>
 </div>

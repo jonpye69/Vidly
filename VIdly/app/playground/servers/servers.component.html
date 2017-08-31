@@ -5,7 +5,7 @@
 
 <div class="form-group">
     <label>Server Name</label>
-    <input type="text" class="form-control" (input)="onUpdateServerName($event)"/>
+    <input type="text" class="form-control" (input)="onUpdateServerName($event)" placeholder="Enter server name..."/>
     <br />
     <input type="text" class="form-control" [(ngModel)]="serverName" />
     <p>{{ serverName }}</p>
@@ -52,14 +52,23 @@
 <div class="form-group">
     <div class="row">
         <button class="btn btn-primary" (click)="onDisplayDetails()">Display Details</button>
-        <p *ngIf="isDisplayDetails">SECRET PASSWORD = TUNA</p>
+        <p *ngIf="isDisplayDetails">THE WORD = TUNA</p>
     </div>
     <div *ngFor="let detail of details; let i = index">
         <ul>
             <li [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}" [ngClass]="{'white-text': i >= 4}">{{ detail }}</li>
         </ul> 
-    </div> 
+    </div>
 </div> 
+
+<div class="form-group">
+    <div class="row">
+        <p appHighlight [defaultColour]="'yellow'" [changedColour]="'orange'">
+            This illustrates a CUSTOM ATTRIBUTE DIRECTIVE (making use of ngStyle) to provide an example of mouseover / mouseout.
+        </p>
+    </div>
+</div>
+
 
 
 

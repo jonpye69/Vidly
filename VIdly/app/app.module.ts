@@ -27,6 +27,7 @@ import { FilmDetailComponent } from './media/films/film-detail/film-detail.compo
 import { CharacterListComponent } from './media/character-list/character-list.component';
 import { CharacterEditComponent } from './media/character-list/character-edit/character-edit.component';
 
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 import { RouterModule, Routes } from '@angular/router';
@@ -43,7 +44,7 @@ const appRoutes: Routes = [
         AppComponent, ServerComponent, ServersComponent, EscapeHtmlPipe,
         MediaComponent, PlaygroundComponent, HeaderComponent,
         FilmsComponent, FilmListComponent, FilmItemComponent, FilmDetailComponent,
-        CharacterListComponent, CharacterEditComponent
+        CharacterListComponent, CharacterEditComponent, HighlightDirective
     ],
     bootstrap:    [ AppComponent ]
 })

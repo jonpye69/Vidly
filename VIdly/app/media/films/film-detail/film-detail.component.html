@@ -1,1 +1,36 @@
-﻿<p>films-detail component</p>
+﻿<div class="row">
+    <div class="col-xs-12">
+        <h1>{{ film.name }}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <img src="{{ film.imagePath }}" alt="" class="film-img-lg" />
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-xs-12">
+        <div class="btn-group">
+            <button type="button" class="btn-primary dropdown-toggle">
+                Manage Film
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li><a href="#">To Film List</a></li>
+                <li><a href="#">Edit Film</a></li>
+                <li><a href="#">Delete Film</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        {{ film.description }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        Characters
+    </div>
+</div>

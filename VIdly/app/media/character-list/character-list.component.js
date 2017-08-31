@@ -7,9 +7,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var character_model_1 = require("../shared/character.model");
 var CharacterListComponent = (function () {
     function CharacterListComponent() {
+        this.characters = [
+            new character_model_1.Character('Buzz Lightyear', 40),
+            new character_model_1.Character('Woody', 25),
+            new character_model_1.Character('Dr Rumack', 60)
+        ];
     }
+    CharacterListComponent.prototype.onCharacterAdded = function (character) {
+        this.characters.push(character);
+    };
     return CharacterListComponent;
 }());
 CharacterListComponent = __decorate([

@@ -10,6 +10,10 @@
     padding-right: 15px;
 }
 
+a {
+    cursor: pointer;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -101,9 +105,9 @@ textarea {
     color: #5bc0de;
 }
 
-.row {
+/*.row {
     margin-bottom: 10px !important;
-}
+}*/
 
 .modal-glyph {
     padding-right: 5px; 
@@ -123,4 +127,36 @@ textarea {
 
 .media-nav ul li a {
     color: #fff !important;
+    cursor: pointer;
 }
+
+.media-nav ul li a:hover {
+    text-decoration: overline;
+}
+
+.media-nav ul li.active {
+    background-color: #aad1f2;
+}
+
+.film-image {
+    max-height: 55px !important;
+}
+
+.film-image-lg-span {
+    height: 200px !important; 
+    max-height: 200px !important;   
+}
+
+.film-img-lg {
+    height: 250px;
+    max-height: 250px;
+} 
+
+.no-pad-left {
+    padding-left: 0 !important;
+}
+
+.bold {
+    font-weight: bold;
+}
+

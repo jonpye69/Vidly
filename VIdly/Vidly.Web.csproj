@@ -645,6 +645,8 @@
     <TypeScriptCompile Include="app\media\films\film.model.ts" />
     <TypeScriptCompile Include="app\media\films\films.component.ts" />
     <TypeScriptCompile Include="app\media\header\header.component.ts" />
+    <TypeScriptCompile Include="app\media\shared\character.model.ts" />
+    <TypeScriptCompile Include="app\media\shared\utilities.static.ts" />
     <TypeScriptCompile Include="app\playground\playground.component.ts" />
     <TypeScriptCompile Include="app\main.ts" />
     <TypeScriptCompile Include="app\playground\servers\servers.component.ts" />

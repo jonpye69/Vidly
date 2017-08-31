@@ -5,13 +5,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var character_model_1 = require("../../shared/character.model");
 var CharacterEditComponent = (function () {
     function CharacterEditComponent() {
+        this.name = '';
+        this.age = null;
+        this.characterAdded = new core_1.EventEmitter();
     }
+    CharacterEditComponent.prototype.onClearForm = function () {
+        this.name = '';
+        this.age = null;
+    };
+    CharacterEditComponent.prototype.onAddCharacter = function () {
+        var charName = this.characterNameInputRef.nativeElement.value;
+        var charAge = this.characterAgeInputRef.nativeElement.value;
+        var newCharacter = new character_model_1.Character(charName, charAge);
+        this.characterAdded.emit(newCharacter);
+        this.name = '';
+        this.age = null;
+    };
     return CharacterEditComponent;
 }());
+__decorate([
+    core_1.ViewChild('characterNameInput'),
+    __metadata("design:type", core_1.ElementRef)
+], CharacterEditComponent.prototype, "characterNameInputRef", void 0);
+__decorate([
+    core_1.ViewChild('characterAgeInput'),
+    __metadata("design:type", core_1.ElementRef)
+], CharacterEditComponent.prototype, "characterAgeInputRef", void 0);
+__decorate([
+    core_1.Output(),
+    __metadata("design:type", Object)
+], CharacterEditComponent.prototype, "characterAdded", void 0);
 CharacterEditComponent = __decorate([
     core_1.Component({
         selector: 'app-character-edit',

@@ -1,8 +1,9 @@
 ﻿<div class="row">
     <div class="col-md-5">
-        <app-film-list></app-film-list>
+        <app-film-list (filmWasSelected)="selectedFilm = $event"></app-film-list>
     </div>
     <div class="col-md-7">
-        <app-film-detail></app-film-detail>
+        <app-film-detail *ngIf="selectedFilm; else infoText" [film]="selectedFilm"></app-film-detail>
+        <ng-template #infoText><p>Please select a film.</p></ng-template>
     </div>
 </div>

@@ -6,10 +6,15 @@
 <h2>Version: {{ version }}</h2>
 <h2>Primary Logo Colour: {{ logoColour }}</h2>
 <h2>Logo Letter : {{ logoLetter }}</h2>
-<hr />
-Two way data binding (with filter): <input type="text" [(ngModel)]="textInput">
-<h1>{{ textInput | uppercase }}</h1>
 <hr/>
+
+<div class="form-group">
+    <label>Two way data binding (with filter): </label>
+    <input type="text" class="form-control" placeholder="Enter value..." [(ngModel)]="textInput">
+</div>
+
+<h1>{{ textInput | uppercase }}</h1>
+<hr />
 <app-server></app-server>
 <hr />
 <app-server></app-server>
