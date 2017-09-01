@@ -168,7 +168,16 @@ textarea {
     background-color: #6d906d;
 }
 
+.redColour {
+    color: red;
+}
+
 .header-ul {
     background-color: #e95420;
+}
+
+.header-ul li.active, 
+.header-ul li a:hover  {
+    background-color: #ac3911;
 }
 

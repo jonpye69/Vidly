@@ -33,6 +33,7 @@ var character_edit_component_1 = require("./media/character-list/character-edit/
 var dropdown_directive_1 = require("./media/shared/dropdown.directive");
 var highlight_directive_1 = require("./test-directives/highlight.directive");
 var unless_directive_1 = require("./test-directives/unless.directive");
+var counter_service_1 = require("./playground/counter.service");
 var router_1 = require("@angular/router");
 var appRoutes = [
     { path: '', redirectTo: 'Media', pathMatch: 'full' },
@@ -55,6 +56,7 @@ AppModule = __decorate([
             highlight_directive_1.HighlightDirective, unless_directive_1.UnlessDirective, dropdown_directive_1.DropdownDirective,
             active_users_component_1.ActiveUsersComponent, inactive_users_component_1.InactiveUsersComponent
         ],
+        providers: [counter_service_1.CounterService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

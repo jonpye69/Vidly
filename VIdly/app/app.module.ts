@@ -33,6 +33,7 @@ import {DropdownDirective } from './media/shared/dropdown.directive';
 
 import { HighlightDirective } from './test-directives/highlight.directive';
 import { UnlessDirective } from './test-directives/unless.directive';
+import { CounterService } from './playground/counter.service';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
         HighlightDirective, UnlessDirective, DropdownDirective,
         ActiveUsersComponent, InactiveUsersComponent
     ],
+    providers: [ CounterService ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

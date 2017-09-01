@@ -642,7 +642,7 @@
     <TypeScriptCompile Include="app\media\shared\dropdown.directive.ts" />
     <TypeScriptCompile Include="app\playground\active-users\active-users.component.ts" />
     <TypeScriptCompile Include="app\playground\inactive-users\inactive-users.component.ts" />
-    <TypeScriptCompile Include="app\playground\users.service.ts" />
+    <TypeScriptCompile Include="app\playground\user.service.ts" />
     <TypeScriptCompile Include="app\test-directives\highlight.directive.ts" />
     <TypeScriptCompile Include="app\test-directives\unless.directive.ts" />
     <TypeScriptCompile Include="app\media\character-list\character-edit\character-edit.component.ts" />

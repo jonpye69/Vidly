@@ -10,31 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var users_service_1 = require("../users.service");
+var user_service_1 = require("../user.service");
 var ActiveUsersComponent = (function () {
     function ActiveUsersComponent(userService) {
         this.userService = userService;
-        this.userSetToInactive = new core_1.EventEmitter();
     }
+    ActiveUsersComponent.prototype.ngOnInit = function () {
+        this.users = this.userService.activeUsers;
+        this.userActiveCount = this.userService.activeUsers.length;
+    };
     ActiveUsersComponent.prototype.onSetToInactive = function (id) {
-        this.userSetToInactive.emit(id);
+        this.userService.setToInactive(id);
+        this.userActiveCount = this.userService.activeUsers.length;
     };
     return ActiveUsersComponent;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Array)
-], ActiveUsersComponent.prototype, "users", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], ActiveUsersComponent.prototype, "userSetToInactive", void 0);
 ActiveUsersComponent = __decorate([
     core_1.Component({
         selector: 'app-active-users',
         templateUrl: './app/playground/active-users/active-users.component.html'
     }),
-    __metadata("design:paramtypes", [users_service_1.UserService])
+    __metadata("design:paramtypes", [user_service_1.UserService])
 ], ActiveUsersComponent);
 exports.ActiveUsersComponent = ActiveUsersComponent;
 //# sourceMappingURL=active-users.component.js.map

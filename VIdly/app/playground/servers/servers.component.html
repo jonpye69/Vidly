@@ -71,7 +71,7 @@
 
 <div class="form-group">
     <div class="row">
-        <button type="button" class="btn btn-success" (click)="onOnlyEvenChange()">Only Even {{ hideOrShowText }}</button>
+        <button type="button" class="btn btn-success" (click)="onOnlyEvenChange()">Only Even -  {{ hideOrShowText }}</button>
     </div>
 
     <div class="row" *appUnless="onlyEven">
@@ -86,5 +86,12 @@
 </div>
 
 <!-- users using services with injectable service for counting -->
-<app-active-users></app-active-users>
-<app-inactive-users></app-inactive-users>
+<div class="row">
+    <div class="col-md-6">
+        <app-active-users></app-active-users>
+    </div>
+    <div class="col-md-6">
+        <app-inactive-users></app-inactive-users>
+    </div>
+</div>
+
