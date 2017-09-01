@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { UserService } from './playground/users.service';
 
 @Component({
     selector: 'my-app',
-    templateUrl: './app/links.component.html'
+    templateUrl: './app/links.component.html',
+    providers: [UserService]
    //templateUrl: './app/app.component.html' 
   //template: `<ul>
   //    <li><a [routerLink] = "['/Product']">Product</a></li>

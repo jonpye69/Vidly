@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var users_service_1 = require("./playground/users.service");
 var AppComponent = (function () {
     function AppComponent() {
         this.framework = 'Angular';
@@ -20,7 +21,8 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        templateUrl: './app/links.component.html'
+        templateUrl: './app/links.component.html',
+        providers: [users_service_1.UserService]
         //templateUrl: './app/app.component.html' 
         //template: `<ul>
         //    <li><a [routerLink] = "['/Product']">Product</a></li>

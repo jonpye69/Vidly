@@ -14,6 +14,8 @@ var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var server_component_1 = require("./playground/server/server.component");
 var servers_component_1 = require("./playground/servers/servers.component");
+var active_users_component_1 = require("./playground/active-users/active-users.component");
+var inactive_users_component_1 = require("./playground/inactive-users/inactive-users.component");
 // Custom filter
 var asHtml_pipe_1 = require("./utils/asHtml.pipe");
 // To hold movie app
@@ -28,8 +30,9 @@ var film_item_component_1 = require("./media/films/film-list/film-item/film-item
 var film_detail_component_1 = require("./media/films/film-detail/film-detail.component");
 var character_list_component_1 = require("./media/character-list/character-list.component");
 var character_edit_component_1 = require("./media/character-list/character-edit/character-edit.component");
-var highlight_directive_1 = require("./directives/highlight.directive");
-var unless_directive_1 = require("./directives/unless.directive");
+var dropdown_directive_1 = require("./media/shared/dropdown.directive");
+var highlight_directive_1 = require("./test-directives/highlight.directive");
+var unless_directive_1 = require("./test-directives/unless.directive");
 var router_1 = require("@angular/router");
 var appRoutes = [
     { path: '', redirectTo: 'Media', pathMatch: 'full' },
@@ -48,7 +51,9 @@ AppModule = __decorate([
             app_component_1.AppComponent, server_component_1.ServerComponent, servers_component_1.ServersComponent, asHtml_pipe_1.EscapeHtmlPipe,
             media_component_1.MediaComponent, playground_component_1.PlaygroundComponent, header_component_1.HeaderComponent,
             films_component_1.FilmsComponent, film_list_component_1.FilmListComponent, film_item_component_1.FilmItemComponent, film_detail_component_1.FilmDetailComponent,
-            character_list_component_1.CharacterListComponent, character_edit_component_1.CharacterEditComponent, highlight_directive_1.HighlightDirective, unless_directive_1.UnlessDirective
+            character_list_component_1.CharacterListComponent, character_edit_component_1.CharacterEditComponent,
+            highlight_directive_1.HighlightDirective, unless_directive_1.UnlessDirective, dropdown_directive_1.DropdownDirective,
+            active_users_component_1.ActiveUsersComponent, inactive_users_component_1.InactiveUsersComponent
         ],
         bootstrap: [app_component_1.AppComponent]
     })

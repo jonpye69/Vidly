@@ -295,6 +295,8 @@
     <Content Include="app\media\films\film-list\film-item\film-item.component.html" />
     <Content Include="app\media\films\film-list\film-list.component.html" />
     <Content Include="app\media\films\films.component.html" />
+    <Content Include="app\playground\active-users\active-users.component.html" />
+    <Content Include="app\playground\inactive-users\inactive-users.component.html" />
     <Content Include="app\playground\playground.component.html" />
     <Content Include="app\links.component.html" />
     <Content Include="app\playground\servers\servers.component.html" />
@@ -637,7 +639,12 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
-    <TypeScriptCompile Include="app\directives\highlight.directive.ts" />
+    <TypeScriptCompile Include="app\media\shared\dropdown.directive.ts" />
+    <TypeScriptCompile Include="app\playground\active-users\active-users.component.ts" />
+    <TypeScriptCompile Include="app\playground\inactive-users\inactive-users.component.ts" />
+    <TypeScriptCompile Include="app\playground\users.service.ts" />
+    <TypeScriptCompile Include="app\test-directives\highlight.directive.ts" />
+    <TypeScriptCompile Include="app\test-directives\unless.directive.ts" />
     <TypeScriptCompile Include="app\media\character-list\character-edit\character-edit.component.ts" />
     <TypeScriptCompile Include="app\media\character-list\character-list.component.ts" />
     <TypeScriptCompile Include="app\media\films\film-detail\film-detail.component.ts" />
