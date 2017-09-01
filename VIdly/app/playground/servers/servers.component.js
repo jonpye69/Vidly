@@ -23,10 +23,22 @@ var ServersComponent = (function () {
         this.isDisplayDetails = true;
         this.details = [];
         this.username = '';
+        // ---------------------------
+        this.evenNumbers = [2, 4, 6, 8, 10];
         setTimeout(function () {
             _this.allowNewServer = true;
         }, 3000);
     }
+    ServersComponent.prototype.onOnlyEvenChange = function () {
+        this.onlyEven = !this.onlyEven;
+        this.hideOrShowText = this.onlyEven ? 'Show' : 'Hide';
+        console.log('onlyEven value = ' + this.onlyEven);
+    };
+    // ---------------------------
+    ServersComponent.prototype.ngOnInit = function () {
+        this.onlyEven = false;
+        this.hideOrShowText = 'Hide';
+    };
     ServersComponent.prototype.getServerStatus = function () {
         return this.serverStatus;
     };

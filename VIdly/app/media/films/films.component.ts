@@ -7,6 +7,4 @@ import { Film } from './film.model';
 })
 export class FilmsComponent {
      @Output() selectedFilm: Film;
-
-
 }

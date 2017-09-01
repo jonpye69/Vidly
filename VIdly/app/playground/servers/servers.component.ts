@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-servers',
@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styles: ['.white-text { color: #fff; }']
 })
 
-export class ServersComponent {
+export class ServersComponent implements OnInit {
     serverId: number = 10;
     serverStatus: string = 'offline';
 
@@ -21,6 +21,23 @@ export class ServersComponent {
     details: any = [];
 
     username: string = '';
+
+    // ---------------------------
+    evenNumbers: number[] = [2, 4, 6, 8, 10];
+    onlyEven: boolean;
+    hideOrShowText: string;
+
+    onOnlyEvenChange() {
+        this.onlyEven = !this.onlyEven;
+        this.hideOrShowText = this.onlyEven ? 'Show' : 'Hide';
+        console.log('onlyEven value = ' + this.onlyEven);
+    }
+    // ---------------------------
+
+    ngOnInit() {
+        this.onlyEven = false;
+        this.hideOrShowText = 'Hide';
+    }
 
     constructor() {
         setTimeout(() => {

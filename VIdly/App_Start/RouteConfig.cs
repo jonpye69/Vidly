@@ -17,7 +17,9 @@ namespace Vidly
             //    new { year = @"2015|2016", month = @"\d{2}" }
             //);
 
-            // Ensure angular doesnt break (redirect) theres routes!
+            //-----------------------------------------------------------------------
+
+            // Ensure angular doesnt break (redirect)theres routes!
             routes.MapRoute(
              name: "Origin",
              url: "",
@@ -33,6 +35,15 @@ namespace Vidly
              url: "Movies/New",
              defaults: new { controller = "Movies", action = "New" });
 
+            routes.MapRoute(
+             name: "MoviesSave",
+             url: "Movies/Save",
+             defaults: new { controller = "Movies", action = "Save" });
+
+            routes.MapRoute(
+             name: "MoviesEdit",
+             url: "Movies/Edit/{id}",
+             defaults: new { controller = "Movies", action = "Edit", id = UrlParameter.Optional });
 
             routes.MapRoute(
             name: "Customers",
@@ -43,6 +54,16 @@ namespace Vidly
             name: "CustomersNew",
             url: "Customers/New",
             defaults: new { controller = "Customers", action = "New" });
+
+            routes.MapRoute(
+             name: "CustomersSave",
+             url: "Customers/Save",
+             defaults: new { controller = "Movies", action = "Save" });
+
+            routes.MapRoute(
+             name: "CustomersEdit",
+             url: "Customers/Edit/{id}",
+             defaults: new { controller = "Movies", action = "Edit", id = UrlParameter.Optional });
 
             routes.MapRoute(
              name: "Spa",

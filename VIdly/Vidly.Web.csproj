@@ -637,6 +637,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
+    <TypeScriptCompile Include="app\directives\highlight.directive.ts" />
     <TypeScriptCompile Include="app\media\character-list\character-edit\character-edit.component.ts" />
     <TypeScriptCompile Include="app\media\character-list\character-list.component.ts" />
     <TypeScriptCompile Include="app\media\films\film-detail\film-detail.component.ts" />

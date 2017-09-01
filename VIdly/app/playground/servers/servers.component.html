@@ -5,7 +5,7 @@
 
 <div class="form-group">
     <label>Server Name</label>
-    <input type="text" class="form-control" (input)="onUpdateServerName($event)" placeholder="Enter server name..."/>
+    <input type="text" class="form-control" (input)="onUpdateServerName($event)" placeholder="Enter server name..." />
     <br />
     <input type="text" class="form-control" [(ngModel)]="serverName" />
     <p>{{ serverName }}</p>
@@ -20,7 +20,7 @@
 <!--<div class="alert alert-success" *ngIf="serverCreated">Server {{ serverName }} was created.</div>-->
 <div class="alert alert-success" *ngIf="serverCreated; else noServer">Server {{ serverName }} was created.</div>
 <ng-template #noServer>
-    <div class="alert alert-warning">No server was created.</div>    
+    <div class="alert alert-warning">No server was created.</div>
 </ng-template>
 
 <p>Example where raw parsed: {{ serverCreationStatus }}</p>
@@ -33,7 +33,7 @@
 
 <div class="container">
     <div class="row">
-        <input type="text" class="form-control" [(ngModel)]="username" placeholder="Enter Username..."/>
+        <input type="text" class="form-control" [(ngModel)]="username" placeholder="Enter Username..." />
     </div>
     <div class="row">
         <p>{{ username }}</p>
@@ -41,13 +41,13 @@
     <div class="row">
         <button class="btn btn-primary" [disabled]="username.trim() === ''" (click)="username = ''">Reset User</button> (property binding ==='' and event binding set var to empty string)
     </div>
-    <br/>
+    <br />
     <div class="row">
         <button class="btn btn-primary" [disabled]="!username.trim()" (click)="onResetUsername()">Reset User</button>(property binding ! and event binding, call function)
     </div>
 </div>
 
-<hr/>
+<hr />
 
 <div class="form-group">
     <div class="row">
@@ -57,18 +57,32 @@
     <div *ngFor="let detail of details; let i = index">
         <ul>
             <li [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'transparent'}" [ngClass]="{'white-text': i >= 4}">{{ detail }}</li>
-        </ul> 
+        </ul>
     </div>
-</div> 
+</div>
 
 <div class="form-group">
     <div class="row">
         <p appHighlight [defaultColour]="'yellow'" [changedColour]="'orange'">
-            This illustrates a CUSTOM ATTRIBUTE DIRECTIVE (making use of ngStyle) to provide an example of mouseover / mouseout.
+            This illustrates a CUSTOM ATTRIBUTE DIRECTIVE (making use of ngStyle) to provide an example of mouseover / mouseout (overiding default colours).
         </p>
     </div>
 </div>
 
+<div class="form-group">
+    <div class="row">
+        <button type="button" class="btn btn-success" (click)="onOnlyEvenChange()">Only Even {{ hideOrShowText }}</button>
+    </div>
 
+    <div class="row" *appUnless="onlyEven">
+        <hr />
+        <p>even (SI) couldnt be used, although a numeric value, all li's backgrounds would be the same! using 2 classes through ngClass, although property binding for ngStyle would be used in practice for below.</p>
+        <ul>
+            <li class="list-group-item" *ngFor="let even of evenNumbers; let i = index" [ngClass]="{oddBg: i % 2 === 0, evenBg: i % 2 !== 0}">
+                {{ even }}
+            </li>
+        </ul>
+    </div>
+</div>
 
 

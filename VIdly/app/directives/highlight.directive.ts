@@ -11,7 +11,7 @@ export class HighlightDirective implements OnInit {
     constructor(private elRef: ElementRef, private renderer: Renderer2) { }
 
     ngOnInit() {
-        this.backgroundColour = this.defaultColour;
+        this.backgroundColour = this.defaultColour; 
     }
 
     @HostListener('mouseenter') mouseenter(eventData: Event) {

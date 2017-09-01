@@ -160,3 +160,11 @@ textarea {
     font-weight: bold;
 }
 
+.oddBg {
+    background-color: #c7e2c7;
+}
+
+.evenBg {
+    background-color: #6d906d;
+}
+
