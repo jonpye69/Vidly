@@ -10,29 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var film_model_1 = require("../../films/film.model");
+var film_service_1 = require("../../shared/services/film.service");
 var FilmListComponent = (function () {
-    function FilmListComponent() {
-        this.films = [
-            new film_model_1.Film('Toy Story 1', 'An animated story about toys that come to life', 'https://vignette3.wikia.nocookie.net/disney/images/1/13/Toy_Story.jpg/revision/latest?cb=20151003163558'),
-            new film_model_1.Film('Aeroplane', 'An adult comedy with most of the film based on an aircraft', 'https://images-na.ssl-images-amazon.com/images/I/51HV97CDVQL.jpg')
-        ];
-        this.filmWasSelected = new core_1.EventEmitter();
+    function FilmListComponent(filmService) {
+        this.filmService = filmService;
     }
-    FilmListComponent.prototype.onFilmSelected = function (filmEl) {
-        this.filmWasSelected.emit(filmEl);
+    FilmListComponent.prototype.ngOnInit = function () {
+        this.films = this.filmService.getFilms();
     };
     return FilmListComponent;
 }());
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], FilmListComponent.prototype, "filmWasSelected", void 0);
 FilmListComponent = __decorate([
     core_1.Component({
         selector: 'app-film-list',
         templateUrl: './app/media/films/film-list/film-list.component.html'
-    })
+    }),
+    __metadata("design:paramtypes", [film_service_1.FilmService])
 ], FilmListComponent);
 exports.FilmListComponent = FilmListComponent;
 //# sourceMappingURL=film-list.component.js.map

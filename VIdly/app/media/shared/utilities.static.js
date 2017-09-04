@@ -6,5 +6,6 @@ var Utilities = (function () {
     return Utilities;
 }());
 Utilities.defaultMenuLocation = 'films';
+Utilities.defaultParentMenuLocation = 'media';
 exports.Utilities = Utilities;
 //# sourceMappingURL=utilities.static.js.map

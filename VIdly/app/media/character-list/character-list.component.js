@@ -5,17 +5,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var character_model_1 = require("../shared/character.model");
+var character_service_1 = require("../shared/services/character.service");
 var CharacterListComponent = (function () {
-    function CharacterListComponent() {
-        this.characters = [
-            new character_model_1.Character('Buzz Lightyear', 40),
-            new character_model_1.Character('Woody', 25),
-            new character_model_1.Character('Dr Rumack', 60)
-        ];
+    function CharacterListComponent(characterService) {
+        this.characterService = characterService;
     }
+    CharacterListComponent.prototype.ngOnInit = function () {
+        this.characters = this.characterService.getCharacters();
+    };
     CharacterListComponent.prototype.onCharacterAdded = function (character) {
         this.characters.push(character);
     };
@@ -24,8 +26,10 @@ var CharacterListComponent = (function () {
 CharacterListComponent = __decorate([
     core_1.Component({
         selector: 'app-character-list',
-        templateUrl: './app/media/character-list/character-list.component.html'
-    })
+        templateUrl: './app/media/character-list/character-list.component.html',
+        providers: [character_service_1.CharacterService]
+    }),
+    __metadata("design:paramtypes", [character_service_1.CharacterService])
 ], CharacterListComponent);
 exports.CharacterListComponent = CharacterListComponent;
 //# sourceMappingURL=character-list.component.js.map

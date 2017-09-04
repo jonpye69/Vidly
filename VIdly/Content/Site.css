@@ -115,6 +115,15 @@ textarea {
 
 /* angular related pages */
 
+.ul-pad-bottom-20 {
+    padding: 0 0 20px 0 !important;
+    margin: 0;
+}
+
+.ul-pad-bottom-20 li {
+    margin-left: 0 !important;
+}
+
 .angular-head img {
     float: left;
     margin-top: -25px;
@@ -136,6 +145,16 @@ textarea {
 
 .media-nav ul li.active {
     background-color: #aad1f2;
+}
+
+.nav-pills li.active a,
+.nav-pills li.active {
+    background-color: #777 !important;
+}
+
+.nav-pills li:hover,
+.nav-pills li a:hover {
+    background-color: #eeeeee;    
 }
 
 .film-image {
@@ -180,4 +199,26 @@ textarea {
 .header-ul li a:hover  {
     background-color: #ac3911;
 }
+
+.no-radius {
+    border-radius: 0 !important;
+}
+
+.no-top-border {
+     border-top: 0 !important;
+}
+
+.border-radius-top-4 {
+    border-radius: 0 !important;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+}
+
+.border-radius-bottom-4 {
+    border-radius: 0 !important;
+    border-bottom-left-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+}
+
+
 

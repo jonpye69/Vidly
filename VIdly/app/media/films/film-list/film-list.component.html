@@ -6,9 +6,13 @@
 <hr />
 <div class="row">
     <div class="col-xs-12">
-        <app-film-item *ngFor="let filmEl of films"
+        <app-film-item *ngFor="let filmEl of films; let i = index"
                        [film]="filmEl"
-                       (filmSelected)="onFilmSelected(filmEl)"></app-film-item>
+                       [filmNumber]="i" 
+                       [filmLength]="films.length"></app-film-item>
     </div>
 </div>
+
+
+
 

@@ -1,11 +1,12 @@
-﻿<a class="list-group-item clearfix" (click)="onSelected($event)">
+﻿<a [ngClass]="theReturnedListItemClasses"
+   (click)="onSelected($event)">
     <div class="pull-left">
         <h4 class="list-group-item-heading bold">{{ film.name }}</h4>
         <p class="list-group-item-text">{{ film.description }}</p>
     </div>
     <span class="pull-right">
         <img src="{{ film.imagePath }}"
-             alt="{{ film.name }}" 
+             alt="{{ film.name }}"
              class="img-responsive film-image" />
     </span>
 </a>

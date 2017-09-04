@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_service_1 = require("./playground/user.service");
+var utilities_static_1 = require("./media/shared/utilities.static");
 var AppComponent = (function () {
     function AppComponent() {
         this.framework = 'Angular';
@@ -15,7 +16,11 @@ var AppComponent = (function () {
         this.logoColour = 'Red';
         this.logoLetter = 'A';
         this.textInput = '';
+        this.selectedParentOpt = utilities_static_1.Utilities.defaultParentMenuLocation;
     }
+    AppComponent.prototype.onParentSelect = function (link) {
+        this.selectedParentOpt = link;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([

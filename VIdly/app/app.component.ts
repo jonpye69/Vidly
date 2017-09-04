@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from './playground/user.service';
+import { Utilities } from './media/shared/utilities.static';
 
 @Component({
     selector: 'my-app',
@@ -19,4 +20,10 @@ export class AppComponent {
     logoColour = 'Red'; 
     logoLetter = 'A';
     textInput = ''; 
+
+    selectedParentOpt: string = Utilities.defaultParentMenuLocation;
+
+    onParentSelect(link: string) {
+        this.selectedParentOpt = link;
+    }
 }
