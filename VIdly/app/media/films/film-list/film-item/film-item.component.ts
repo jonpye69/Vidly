@@ -11,7 +11,7 @@ export class FilmItemComponent implements OnInit {
     @Input() filmNumber: number;
     @Input() filmLength: number;
     //private className: string = 'list-group-item clearfix';
-    private theReturnedListItemClasses: string; 
+    private filmListItemClasses: string; 
 
     constructor(private filmService: FilmService) {
     }
@@ -31,7 +31,7 @@ export class FilmItemComponent implements OnInit {
     ngOnInit() {
         let initClassName: string = 'list-group-item clearfix';
 
-        this.theReturnedListItemClasses = this.filmNumber === 0 ?
+        this.filmListItemClasses = this.filmNumber === 0 ?
             initClassName + ' border-radius-top-4' :
             (this.filmLength === this.filmNumber + 1 ? initClassName + ' border-radius-bottom-4 no-top-border' : initClassName + ' no-radius no-top-border');
     }

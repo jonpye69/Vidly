@@ -28,7 +28,7 @@ var FilmItemComponent = (function () {
     // This way - just to illustrate another way other than calling a function - here we set a property instead.
     FilmItemComponent.prototype.ngOnInit = function () {
         var initClassName = 'list-group-item clearfix';
-        this.theReturnedListItemClasses = this.filmNumber === 0 ?
+        this.filmListItemClasses = this.filmNumber === 0 ?
             initClassName + ' border-radius-top-4' :
             (this.filmLength === this.filmNumber + 1 ? initClassName + ' border-radius-bottom-4 no-top-border' : initClassName + ' no-radius no-top-border');
     };
