@@ -5,16 +5,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_service_1 = require("./playground/user.service");
 var utilities_static_1 = require("./media/shared/utilities.static");
 var AppComponent = (function () {
-    function AppComponent(route) {
-        this.route = route;
+    function AppComponent() {
         this.framework = 'Angular';
         this.version = '2.0';
         this.logoColour = 'Red';
@@ -41,8 +37,7 @@ AppComponent = __decorate([
         //    <li><a [routerLink] = "['/playground']">Playground</a></li>
         // </ul>
         // <router-outlet></router-outlet>`
-    }),
-    __metadata("design:paramtypes", [Object])
+    })
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

@@ -22,8 +22,6 @@ export class AppComponent implements OnInit {
     logoLetter = 'A';
     textInput = ''; 
     selectedParentOpt: string = '';
-
-    constructor(private route: Router) {} 
     
     ngOnInit() {
         this.selectedParentOpt = window.location.pathname.substring(1).toLowerCase() || Utilities.defaultParentMenuLocation;
