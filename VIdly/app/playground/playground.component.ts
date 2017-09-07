@@ -10,4 +10,5 @@ export class PlaygroundComponent {
     logoColour = 'Red';
     logoLetter = 'A';
     textInput = ''; 
+    jumbotronText = 'Angular 4 Playground';
 }

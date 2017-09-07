@@ -1,5 +1,8 @@
-﻿import { Component, ElementRef, ViewChild, EventEmitter, Output } from '@angular/core';
+﻿import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 import { Character } from '../../shared/character.model';
+import { CharacterListService } from '../../shared/services/character-list.service';
 
 @Component({
     selector: 'app-character-edit',
@@ -11,18 +14,20 @@ export class CharacterEditComponent {
 
     @ViewChild('characterNameInput') characterNameInputRef: ElementRef;
     @ViewChild('characterAgeInput') characterAgeInputRef: ElementRef;
-    @Output() characterAdded = new EventEmitter<Character>();
+
+    constructor(private characterListService: CharacterListService) {
+    }
 
     onClearForm() {
         this.name = '';
         this.age = null;
     }
-    
-    onAddCharacter() {
+
+    onAddCharacter(charForm: NgForm) {
         const charName = this.characterNameInputRef.nativeElement.value;
         const charAge = this.characterAgeInputRef.nativeElement.value;
         const newCharacter = new Character(charName, charAge);
-        this.characterAdded.emit(newCharacter);
+        this.characterListService.addCharacter(newCharacter);
 
         this.name = '';
         this.age = null;

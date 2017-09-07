@@ -14,6 +14,10 @@ a {
     cursor: pointer;
 }
 
+h3.blue {
+    color: #369;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -105,9 +109,9 @@ textarea {
     color: #5bc0de;
 }
 
-/*.row {
-    margin-bottom: 10px !important;
-}*/
+.row {
+    margin-bottom: 5px;
+}
 
 .modal-glyph {
     padding-right: 5px; 
@@ -220,5 +224,13 @@ textarea {
     border-bottom-right-radius: 4px !important;
 }
 
+span.float-left-space,
+span.float-left-space div  {
+    float: left;
+    padding-right: 5px;
+}
 
+.temp-spacer {
+    height: 400px;
+}
 

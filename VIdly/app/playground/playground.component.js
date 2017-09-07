@@ -14,6 +14,7 @@ var PlaygroundComponent = (function () {
         this.logoColour = 'Red';
         this.logoLetter = 'A';
         this.textInput = '';
+        this.jumbotronText = 'Angular 4 Playground';
     }
     return PlaygroundComponent;
 }());

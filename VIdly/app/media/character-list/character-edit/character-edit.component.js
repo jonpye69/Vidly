@@ -11,21 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var character_model_1 = require("../../shared/character.model");
+var character_list_service_1 = require("../../shared/services/character-list.service");
 var CharacterEditComponent = (function () {
-    function CharacterEditComponent() {
+    function CharacterEditComponent(characterListService) {
+        this.characterListService = characterListService;
         this.name = '';
         this.age = null;
-        this.characterAdded = new core_1.EventEmitter();
     }
     CharacterEditComponent.prototype.onClearForm = function () {
         this.name = '';
         this.age = null;
     };
-    CharacterEditComponent.prototype.onAddCharacter = function () {
+    CharacterEditComponent.prototype.onAddCharacter = function (charForm) {
         var charName = this.characterNameInputRef.nativeElement.value;
         var charAge = this.characterAgeInputRef.nativeElement.value;
         var newCharacter = new character_model_1.Character(charName, charAge);
-        this.characterAdded.emit(newCharacter);
+        this.characterListService.addCharacter(newCharacter);
         this.name = '';
         this.age = null;
     };
@@ -39,15 +40,12 @@ __decorate([
     core_1.ViewChild('characterAgeInput'),
     __metadata("design:type", core_1.ElementRef)
 ], CharacterEditComponent.prototype, "characterAgeInputRef", void 0);
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], CharacterEditComponent.prototype, "characterAdded", void 0);
 CharacterEditComponent = __decorate([
     core_1.Component({
         selector: 'app-character-edit',
         templateUrl: './app/media/character-list/character-edit/character-edit.component.html'
-    })
+    }),
+    __metadata("design:paramtypes", [character_list_service_1.CharacterListService])
 ], CharacterEditComponent);
 exports.CharacterEditComponent = CharacterEditComponent;
 //# sourceMappingURL=character-edit.component.js.map

@@ -1,5 +1,7 @@
 ﻿import { Component, Input } from '@angular/core';
 import { Film } from '../film.model';
+import { FilmService } from '../../shared/services/film.service';
+import { Character } from '../../shared/character.model';
 
 @Component({
     selector: 'app-film-detail',
@@ -8,5 +10,10 @@ import { Film } from '../film.model';
 export class FilmDetailComponent {
     @Input() film: Film;
 
+    constructor(private filmService: FilmService) {
+    }
 
+    onAddToCharacterList() {
+        this.filmService.addCharsToCharList(this.film.characters);
+    }
 }

@@ -4,6 +4,6 @@
     </div>
     <div class="col-md-7">
         <app-film-detail *ngIf="selectedFilm; else infoText" [film]="selectedFilm"></app-film-detail>
-        <ng-template #infoText><p>Please select a film.</p></ng-template>
+        <ng-template #infoText><p>Please select a film, in order to view it's details.</p></ng-template>
     </div>
 </div>

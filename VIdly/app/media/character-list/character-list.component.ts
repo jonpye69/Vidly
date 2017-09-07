@@ -1,28 +1,26 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Character } from '../shared/character.model';
-import { CharacterService } from '../shared/services/character.service';
+import { CharacterListService } from '../shared/services/character-list.service';
 
 @Component({
     selector: 'app-character-list',
-    templateUrl: './app/media/character-list/character-list.component.html',
-    providers: [CharacterService]
+    templateUrl: './app/media/character-list/character-list.component.html'
 })
 export class CharacterListComponent implements OnInit {
-    //characters: Character[] = [
-    //    new Character('Buzz Lightyear', 40),
-    //    new Character('Woody', 25),
-    //    new Character('Dr Rumack', 60)
-    //];
     characters: Character[];
 
-    constructor(private characterService: CharacterService) {
+    constructor(private characterListService: CharacterListService) {
     }
 
     ngOnInit() {
-        this.characters = this.characterService.getCharacters();
+        this.characters = this.characterListService.getCharacters();
+        // subscribe to the event emitter in the character list service
+        this.characterListService.charactersChanged
+            .subscribe(
+                (characters: Character[]) => {
+                    this.characters = characters;
+                }
+            );
     }
 
-    onCharacterAdded(character: Character) {
-        this.characters.push(character);
-    }
 }

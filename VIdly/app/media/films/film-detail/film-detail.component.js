@@ -11,9 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var film_model_1 = require("../film.model");
+var film_service_1 = require("../../shared/services/film.service");
 var FilmDetailComponent = (function () {
-    function FilmDetailComponent() {
+    function FilmDetailComponent(filmService) {
+        this.filmService = filmService;
     }
+    FilmDetailComponent.prototype.onAddToCharacterList = function () {
+        this.filmService.addCharsToCharList(this.film.characters);
+    };
     return FilmDetailComponent;
 }());
 __decorate([
@@ -24,7 +29,8 @@ FilmDetailComponent = __decorate([
     core_1.Component({
         selector: 'app-film-detail',
         templateUrl: './app/media/films/film-detail/film-detail.component.html'
-    })
+    }),
+    __metadata("design:paramtypes", [film_service_1.FilmService])
 ], FilmDetailComponent);
 exports.FilmDetailComponent = FilmDetailComponent;
 //# sourceMappingURL=film-detail.component.js.map

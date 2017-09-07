@@ -28,12 +28,15 @@ import { FilmDetailComponent } from './media/films/film-detail/film-detail.compo
 
 import { CharacterListComponent } from './media/character-list/character-list.component';
 import { CharacterEditComponent } from './media/character-list/character-edit/character-edit.component';
+import { CharacterListService } from './media/shared/services/character-list.service';
 
 import {DropdownDirective } from './media/shared/dropdown.directive';
 
 import { HighlightDirective } from './test-directives/highlight.directive';
 import { UnlessDirective } from './test-directives/unless.directive';
 import { CounterService } from './playground/counter.service';
+
+
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -53,7 +56,7 @@ const appRoutes: Routes = [
         HighlightDirective, UnlessDirective, DropdownDirective,
         ActiveUsersComponent, InactiveUsersComponent
     ],
-    providers: [ CounterService ],
+    providers: [CounterService, CharacterListService ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

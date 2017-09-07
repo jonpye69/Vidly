@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var Film = (function () {
-    function Film(name, description, imagePath) {
+    function Film(name, description, imagePath, characters) {
         this.name = name;
         this.description = description;
         this.imagePath = imagePath;
+        this.characters = characters;
     }
     return Film;
 }());

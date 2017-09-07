@@ -10,26 +10,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var character_service_1 = require("../shared/services/character.service");
+var character_list_service_1 = require("../shared/services/character-list.service");
 var CharacterListComponent = (function () {
-    function CharacterListComponent(characterService) {
-        this.characterService = characterService;
+    function CharacterListComponent(characterListService) {
+        this.characterListService = characterListService;
     }
     CharacterListComponent.prototype.ngOnInit = function () {
-        this.characters = this.characterService.getCharacters();
-    };
-    CharacterListComponent.prototype.onCharacterAdded = function (character) {
-        this.characters.push(character);
+        var _this = this;
+        this.characters = this.characterListService.getCharacters();
+        // subscribe to the event emitter in the character list service
+        this.characterListService.charactersChanged
+            .subscribe(function (characters) {
+            _this.characters = characters;
+        });
     };
     return CharacterListComponent;
 }());
 CharacterListComponent = __decorate([
     core_1.Component({
         selector: 'app-character-list',
-        templateUrl: './app/media/character-list/character-list.component.html',
-        providers: [character_service_1.CharacterService]
+        templateUrl: './app/media/character-list/character-list.component.html'
     }),
-    __metadata("design:paramtypes", [character_service_1.CharacterService])
+    __metadata("design:paramtypes", [character_list_service_1.CharacterListService])
 ], CharacterListComponent);
 exports.CharacterListComponent = CharacterListComponent;
 //# sourceMappingURL=character-list.component.js.map

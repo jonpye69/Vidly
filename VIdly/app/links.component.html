@@ -1,8 +1,9 @@
 ﻿<div class="row">
     <div class="col-md-12">
         <ul class="nav nav-pills ul-pad-bottom-20">
+            <!-- active class set as so purely for testing purposes > directive routerLinkActive (along with [routerLinkActiveOptions]={exact: true}) would be a best practice! -->
             <li [class.active]="selectedParentOpt === 'media'"><a [routerLink]="['/Media']" (click)="onParentSelect('media')">Films & Characters</a></li>
-            <li [class.active]="selectedParentOpt === 'playground'"><a [routerLink]="['/Playground']" (click)="onParentSelect('playground')">Angular Playground</a></li>
+            <li [class.active]="selectedParentOpt === 'playground'"><a routerLink="/Playground" (click)="onParentSelect('playground')">Angular Playground</a></li>
         </ul>
         <router-outlet></router-outlet>
     </div>

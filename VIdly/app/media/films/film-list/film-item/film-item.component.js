@@ -25,11 +25,13 @@ var FilmItemComponent = (function () {
     //        this.className + ' border-radius-top-4' :
     //        (this.filmLength === this.filmNumber + 1 ? this.className + ' border-radius-bottom-4 no-top-border' : this.className + ' no-radius no-top-border');
     //}
-    // This way - just to illustrate another way other than calling a function - here we set a property instead.
+    /* This way - just to illustrate another way other than calling a function - here we set
+     a property instead, that is in turn refererenced via property binding (ngClass). */
     FilmItemComponent.prototype.ngOnInit = function () {
         var initClassName = 'list-group-item clearfix';
         this.filmListItemClasses = this.filmNumber === 0 ?
             initClassName + ' border-radius-top-4' :
+            // plus one as we have a zero starting index on filmNumber
             (this.filmLength === this.filmNumber + 1 ? initClassName + ' border-radius-bottom-4 no-top-border' : initClassName + ' no-radius no-top-border');
     };
     return FilmItemComponent;

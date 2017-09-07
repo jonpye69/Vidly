@@ -639,7 +639,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.module.ts" />
-    <TypeScriptCompile Include="app\media\shared\services\character.service.ts" />
+    <TypeScriptCompile Include="app\media\shared\services\character-list.service.ts" />
     <TypeScriptCompile Include="app\media\shared\dropdown.directive.ts" />
     <TypeScriptCompile Include="app\media\shared\services\film.service.ts" />
     <TypeScriptCompile Include="app\playground\active-users\active-users.component.ts" />

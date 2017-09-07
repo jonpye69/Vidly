@@ -30,6 +30,7 @@ var film_item_component_1 = require("./media/films/film-list/film-item/film-item
 var film_detail_component_1 = require("./media/films/film-detail/film-detail.component");
 var character_list_component_1 = require("./media/character-list/character-list.component");
 var character_edit_component_1 = require("./media/character-list/character-edit/character-edit.component");
+var character_list_service_1 = require("./media/shared/services/character-list.service");
 var dropdown_directive_1 = require("./media/shared/dropdown.directive");
 var highlight_directive_1 = require("./test-directives/highlight.directive");
 var unless_directive_1 = require("./test-directives/unless.directive");
@@ -56,7 +57,7 @@ AppModule = __decorate([
             highlight_directive_1.HighlightDirective, unless_directive_1.UnlessDirective, dropdown_directive_1.DropdownDirective,
             active_users_component_1.ActiveUsersComponent, inactive_users_component_1.InactiveUsersComponent
         ],
-        providers: [counter_service_1.CounterService],
+        providers: [counter_service_1.CounterService, character_list_service_1.CharacterListService],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
