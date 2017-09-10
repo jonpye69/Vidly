@@ -16,14 +16,15 @@ var FilmItemComponent = (function () {
     function FilmItemComponent(filmService) {
         this.filmService = filmService;
     }
-    FilmItemComponent.prototype.onSelected = function () {
+    FilmItemComponent.prototype.onSelected = function (fn) {
+        this.filmSelectedNumber = fn;
         this.filmService.filmSelected.emit(this.film);
     };
     // If first or last film, add border radius appropriately so we dont end up with rounded borders on every element, only the first and last
     //getClasses() {
     //    return this.filmNumber === 0 ?
-    //        this.className + ' border-radius-top-4' :
-    //        (this.filmLength === this.filmNumber + 1 ? this.className + ' border-radius-bottom-4 no-top-border' : this.className + ' no-radius no-top-border');
+    //        this.className + ' border-radius-top-4' + (this.filmSelectedNo === this.filmNumber ? ' active' : '') :
+    //        (this.filmLength === this.filmNumber + 1 ? this.className + ' border-radius-bottom-4 no-top-border' + (this.filmSelectedNo === this.filmNumber ? ' active' : '') : this.className + ' no-radius no-top-border' + (this.filmSelectedNo === this.filmNumber ? ' active' : ''));
     //}
     /* This way - just to illustrate another way other than calling a function - here we set
      a property instead, that is in turn refererenced via property binding (ngClass). */
@@ -33,6 +34,7 @@ var FilmItemComponent = (function () {
             initClassName + ' border-radius-top-4' :
             // plus one as we have a zero starting index on filmNumber
             (this.filmLength === this.filmNumber + 1 ? initClassName + ' border-radius-bottom-4 no-top-border' : initClassName + ' no-radius no-top-border');
+        console.log('oninit this.filmListItemClasses = ' + this.filmListItemClasses);
     };
     return FilmItemComponent;
 }());

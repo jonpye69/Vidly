@@ -414,6 +414,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\angular.png" />
     <Content Include="Content\spa.css" />
     <Content Include="favicon.ico" />

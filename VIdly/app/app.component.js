@@ -20,6 +20,8 @@ var AppComponent = (function () {
     }
     AppComponent.prototype.ngOnInit = function () {
         this.selectedParentOpt = window.location.pathname.substring(1).toLowerCase() || utilities_static_1.Utilities.defaultParentMenuLocation;
+        // This creates an error (using ActivatedRoute), and cant find the appropriate lifecycle hook to implement this within
+        //this.selectedParentOpt = this.route.snapshot.url[0].path.toLowerCase() || Utilities.defaultParentMenuLocation;
     };
     AppComponent.prototype.onParentSelect = function (link) {
         this.selectedParentOpt = link;

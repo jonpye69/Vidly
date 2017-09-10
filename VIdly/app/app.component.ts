@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { UserService } from './playground/user.service';
 import { Utilities } from './media/shared/utilities.static';
@@ -15,16 +16,20 @@ import { Utilities } from './media/shared/utilities.static';
   // <router-outlet></router-outlet>`
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent {
     framework = 'Angular';  
     version = '2.0'; 
     logoColour = 'Red'; 
     logoLetter = 'A';
     textInput = ''; 
     selectedParentOpt: string = '';
+
     
     ngOnInit() {
         this.selectedParentOpt = window.location.pathname.substring(1).toLowerCase() || Utilities.defaultParentMenuLocation;
+
+        // This creates an error (using ActivatedRoute), and cant find the appropriate lifecycle hook to implement this within
+        //this.selectedParentOpt = this.route.snapshot.url[0].path.toLowerCase() || Utilities.defaultParentMenuLocation;
     }
     
     onParentSelect(link: string) {

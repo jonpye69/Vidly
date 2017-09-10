@@ -1,5 +1,5 @@
 ﻿<a [ngClass]="filmListItemClasses"
-   (click)="onSelected($event)">
+   (click)="onSelected(filmNumber)">
     <div class="pull-left">
         <h4 class="list-group-item-heading bold">{{ film.name }}</h4>
         <p class="list-group-item-text">{{ film.description }}</p>
@@ -7,6 +7,9 @@
     <span class="pull-right">
         <img src="{{ film.imagePath }}"
              alt="{{ film.name }}"
-             class="img-responsive film-image" />
+             class="img-responsive film-image img-rounded" />
     </span>
 </a>
+
+
+<!--onCheckActive(filmSelectedNo, filmNumber)-->
