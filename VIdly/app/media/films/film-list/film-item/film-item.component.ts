@@ -1,4 +1,5 @@
-﻿import { Component, Input, OnInit } from '@angular/core';
+﻿import { Component, Input, OnInit, ElementRef, Inject, Renderer2 } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
 import { Film } from '../../film.model';
 import { FilmService } from '../../../shared/services/film.service';
 
@@ -14,11 +15,24 @@ export class FilmItemComponent implements OnInit {
     private filmListItemClasses: string;
     private filmSelectedNumber: number;
 
-    constructor(private filmService: FilmService) {
+    constructor(private filmService: FilmService, @Inject(DOCUMENT) private document: any, private renderer: Renderer2) {
     }
     
-    onSelected(fn: number) {
+    onSelected(fn: number, elRef: ElementRef) {
+
         this.filmSelectedNumber = fn;
+        console.log('elRef: ', elRef);
+        console.log('all list-group-item', this.document.querySelectorAll('.list-group-item'));
+
+        let test = this.document.querySelectorAll('.list-group-item');
+        for (let i = 0; i < test.length; i++) {
+            test[i].classList.remove('active');
+        }
+
+
+        this.renderer.addClass(elRef, 'active');
+        //this.renderer.setElementClass(elRef.nativeElement, 'active', true);
+        
         this.filmService.filmSelected.emit(this.film);
     }
 
@@ -28,8 +42,6 @@ export class FilmItemComponent implements OnInit {
 //        this.className + ' border-radius-top-4' + (this.filmSelectedNo === this.filmNumber ? ' active' : '') :
 //        (this.filmLength === this.filmNumber + 1 ? this.className + ' border-radius-bottom-4 no-top-border' + (this.filmSelectedNo === this.filmNumber ? ' active' : '') : this.className + ' no-radius no-top-border' + (this.filmSelectedNo === this.filmNumber ? ' active' : ''));
 //}
-
-
 
 
 /* This way - just to illustrate another way other than calling a function - here we set 

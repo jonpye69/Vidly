@@ -8,16 +8,30 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var platform_browser_1 = require("@angular/platform-browser");
 var film_model_1 = require("../../film.model");
 var film_service_1 = require("../../../shared/services/film.service");
 var FilmItemComponent = (function () {
-    function FilmItemComponent(filmService) {
+    function FilmItemComponent(filmService, document, renderer) {
         this.filmService = filmService;
+        this.document = document;
+        this.renderer = renderer;
     }
-    FilmItemComponent.prototype.onSelected = function (fn) {
+    FilmItemComponent.prototype.onSelected = function (fn, elRef) {
         this.filmSelectedNumber = fn;
+        console.log('elRef: ', elRef);
+        console.log('all list-group-item', this.document.querySelectorAll('.list-group-item'));
+        var test = this.document.querySelectorAll('.list-group-item');
+        for (var i = 0; i < test.length; i++) {
+            test[i].classList.remove('active');
+        }
+        this.renderer.addClass(elRef, 'active');
+        //this.renderer.setElementClass(elRef.nativeElement, 'active', true);
         this.filmService.filmSelected.emit(this.film);
     };
     // If first or last film, add border radius appropriately so we dont end up with rounded borders on every element, only the first and last
@@ -55,7 +69,8 @@ FilmItemComponent = __decorate([
         selector: 'app-film-item',
         templateUrl: './app/media/films/film-list/film-item/film-item.component.html'
     }),
-    __metadata("design:paramtypes", [film_service_1.FilmService])
+    __param(1, core_1.Inject(platform_browser_1.DOCUMENT)),
+    __metadata("design:paramtypes", [film_service_1.FilmService, Object, core_1.Renderer2])
 ], FilmItemComponent);
 exports.FilmItemComponent = FilmItemComponent;
 //# sourceMappingURL=film-item.component.js.map
