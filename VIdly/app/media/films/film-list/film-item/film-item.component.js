@@ -23,15 +23,14 @@ var FilmItemComponent = (function () {
         this.renderer = renderer;
     }
     FilmItemComponent.prototype.onSelected = function (fn, elRef) {
-        this.filmSelectedNumber = fn;
-        console.log('elRef: ', elRef);
-        console.log('all list-group-item', this.document.querySelectorAll('.list-group-item'));
-        var test = this.document.querySelectorAll('.list-group-item');
-        for (var i = 0; i < test.length; i++) {
-            test[i].classList.remove('active');
+        // Remove active class from all film list items  
+        var elems = this.document.querySelectorAll('.list-group-item');
+        for (var i = 0; i < elems.length; i++) {
+            elems[i].classList.remove('active');
         }
+        // Add active class to currently selected
         this.renderer.addClass(elRef, 'active');
-        //this.renderer.setElementClass(elRef.nativeElement, 'active', true);
+        // Emit our selected film
         this.filmService.filmSelected.emit(this.film);
     };
     // If first or last film, add border radius appropriately so we dont end up with rounded borders on every element, only the first and last

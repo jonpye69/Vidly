@@ -13,26 +13,22 @@ export class FilmItemComponent implements OnInit {
     @Input() filmLength: number;
     //private className: string = 'list-group-item clearfix';
     private filmListItemClasses: string;
-    private filmSelectedNumber: number;
 
     constructor(private filmService: FilmService, @Inject(DOCUMENT) private document: any, private renderer: Renderer2) {
     }
     
     onSelected(fn: number, elRef: ElementRef) {
 
-        this.filmSelectedNumber = fn;
-        console.log('elRef: ', elRef);
-        console.log('all list-group-item', this.document.querySelectorAll('.list-group-item'));
-
-        let test = this.document.querySelectorAll('.list-group-item');
-        for (let i = 0; i < test.length; i++) {
-            test[i].classList.remove('active');
+        // Remove active class from all film list items  
+        let elems = this.document.querySelectorAll('.list-group-item');
+        for (let i = 0; i < elems.length; i++) {
+            elems[i].classList.remove('active');
         }
 
-
+        // Add active class to currently selected
         this.renderer.addClass(elRef, 'active');
-        //this.renderer.setElementClass(elRef.nativeElement, 'active', true);
-        
+
+        // Emit our selected film
         this.filmService.filmSelected.emit(this.film);
     }
 
