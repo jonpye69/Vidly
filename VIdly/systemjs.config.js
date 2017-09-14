@@ -25,6 +25,7 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@angular/upgrade/static': 'npm:@angular/upgrade/bundles/upgrade-static.umd.js',
+      'ngx-bootstrap': './node_modules/ngx-bootstrap',
 
       // other libraries
       'rxjs':                      'npm:rxjs',
@@ -39,6 +40,14 @@
       rxjs: {
         defaultExtension: 'js'
       }
+        ,
+      'ngx-bootstrap': { format: 'cjs', main: 'bundles/ngx-bootstrap.umd.js', defaultExtension: 'js' }
+    //    ,
+	// ngx-bootstrap:   { 
+	//      format: 'cjs', 
+	//      main: 'bundles/ngx-bootstrap.umd.js', 
+    //          defaultExtension: 'js' 
+	//}
     }
   });
 })(this);

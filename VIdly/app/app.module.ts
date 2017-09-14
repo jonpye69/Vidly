@@ -3,6 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+// Bootstrap
+//import { ModalModule } from '../node_modules/ngx-bootstrap';
+//import { ModalModule } from 'ngx-bootstrap';
+import { BsModalRef, ModalModule, BsModalService } from 'ngx-bootstrap';
+
 // Training
 import { AppComponent } from './app.component';
 import { ServerComponent } from './playground/server/server.component';
@@ -14,9 +19,9 @@ import { InactiveUsersComponent } from './playground/inactive-users/inactive-use
 import { EscapeHtmlPipe } from './utils/asHtml.pipe';
 
 // To hold movie app
-import { MediaComponent } from './media/media.component'
+import { MediaComponent } from './media/media.component';
 // To hold training stuff
-import { PlaygroundComponent } from './playground/playground.component'
+import { PlaygroundComponent } from './playground/playground.component';
 
 // Movie app sub components
 import { HeaderComponent } from './media/header/header.component';
@@ -47,7 +52,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes)],
+    imports: [ModalModule.forRoot(), BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes)],
     declarations: [
         AppComponent, ServerComponent, ServersComponent, EscapeHtmlPipe,
         MediaComponent, PlaygroundComponent, HeaderComponent,

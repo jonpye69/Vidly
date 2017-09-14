@@ -10,6 +10,10 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+// Bootstrap
+//import { ModalModule } from '../node_modules/ngx-bootstrap';
+//import { ModalModule } from 'ngx-bootstrap';
+var ngx_bootstrap_1 = require("ngx-bootstrap");
 // Training
 var app_component_1 = require("./app.component");
 var server_component_1 = require("./playground/server/server.component");
@@ -48,7 +52,7 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes)],
+        imports: [ngx_bootstrap_1.ModalModule.forRoot(), platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes)],
         declarations: [
             app_component_1.AppComponent, server_component_1.ServerComponent, servers_component_1.ServersComponent, asHtml_pipe_1.EscapeHtmlPipe,
             media_component_1.MediaComponent, playground_component_1.PlaygroundComponent, header_component_1.HeaderComponent,

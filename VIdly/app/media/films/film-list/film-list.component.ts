@@ -1,4 +1,6 @@
-﻿import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit, TemplateRef } from '@angular/core';
+
+import { BsModalRef, ModalModule, BsModalService } from 'ngx-bootstrap';
 
 import { Film } from '../../films/film.model';
 import { FilmService } from '../../shared/services/film.service';
@@ -14,12 +16,17 @@ export class FilmListComponent implements OnInit {
     //];
     
     films: Film[];
+    public modalRef: BsModalRef;
 
-    constructor(private filmService: FilmService) {
+    constructor(private filmService: FilmService, private modalService: BsModalService) {
     }
 
     ngOnInit() {
         this.films = this.filmService.getFilms();
+    }
+
+    public openModal(template: TemplateRef<any>) {
+        this.modalRef = this.modalService.show(template);
     }
     
 }

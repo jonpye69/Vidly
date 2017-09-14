@@ -10,13 +10,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var ngx_bootstrap_1 = require("ngx-bootstrap");
 var film_service_1 = require("../../shared/services/film.service");
 var FilmListComponent = (function () {
-    function FilmListComponent(filmService) {
+    function FilmListComponent(filmService, modalService) {
         this.filmService = filmService;
+        this.modalService = modalService;
     }
     FilmListComponent.prototype.ngOnInit = function () {
         this.films = this.filmService.getFilms();
+    };
+    FilmListComponent.prototype.openModal = function (template) {
+        this.modalRef = this.modalService.show(template);
     };
     return FilmListComponent;
 }());
@@ -25,7 +30,7 @@ FilmListComponent = __decorate([
         selector: 'app-film-list',
         templateUrl: './app/media/films/film-list/film-list.component.html'
     }),
-    __metadata("design:paramtypes", [film_service_1.FilmService])
+    __metadata("design:paramtypes", [film_service_1.FilmService, ngx_bootstrap_1.BsModalService])
 ], FilmListComponent);
 exports.FilmListComponent = FilmListComponent;
 //# sourceMappingURL=film-list.component.js.map

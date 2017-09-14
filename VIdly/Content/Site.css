@@ -254,6 +254,12 @@ span.float-left-space div {
     height: 400px;
 }
 
+.modal-bg {
+    background-color: #e95420 !important;
+    color: #fff;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
+}
 
 /*.active {
     background-color: yellow !important;
