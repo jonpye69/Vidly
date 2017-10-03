@@ -28,5 +28,7 @@ export class FilmListComponent implements OnInit {
     public openModal(template: TemplateRef<any>) {
         this.modalRef = this.modalService.show(template);
     }
+
+
     
 }
