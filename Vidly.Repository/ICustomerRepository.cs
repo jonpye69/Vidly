@@ -3,7 +3,7 @@ using Vidly.Models;
 
 namespace Vidly.Repository
 {
-    public interface ICustomerRepository
+    public interface ICustomerRepository : IRepository<Customer>
     {
         IEnumerable<Customer> GetCustomersEqualOrAboveCertainAge(int years);
     }
