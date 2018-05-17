@@ -1,0 +1,22 @@
+{
+  "name": "vidly",
+  "version": "1.0.0",
+  "description": "video store app",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonpye69/Vidly.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonpye69/Vidly/issues"
+  },
+  "homepage": "https://github.com/jonpye69/Vidly#readme"
+}
