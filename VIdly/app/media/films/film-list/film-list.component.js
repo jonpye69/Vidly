@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var ngx_bootstrap_1 = require("ngx-bootstrap");
 var film_service_1 = require("../../shared/services/film.service");
-var FilmListComponent = (function () {
+var FilmListComponent = /** @class */ (function () {
     function FilmListComponent(filmService, modalService) {
         this.filmService = filmService;
         this.modalService = modalService;
@@ -23,14 +23,15 @@ var FilmListComponent = (function () {
     FilmListComponent.prototype.openModal = function (template) {
         this.modalRef = this.modalService.show(template);
     };
+    FilmListComponent = __decorate([
+        core_1.Component({
+            selector: 'app-film-list',
+            templateUrl: './app/media/films/film-list/film-list.component.html'
+        }),
+        __metadata("design:paramtypes", [film_service_1.FilmService, typeof (_a = typeof ngx_bootstrap_1.BsModalService !== "undefined" && ngx_bootstrap_1.BsModalService) === "function" && _a || Object])
+    ], FilmListComponent);
     return FilmListComponent;
+    var _a;
 }());
-FilmListComponent = __decorate([
-    core_1.Component({
-        selector: 'app-film-list',
-        templateUrl: './app/media/films/film-list/film-list.component.html'
-    }),
-    __metadata("design:paramtypes", [film_service_1.FilmService, ngx_bootstrap_1.BsModalService])
-], FilmListComponent);
 exports.FilmListComponent = FilmListComponent;
 //# sourceMappingURL=film-list.component.js.map

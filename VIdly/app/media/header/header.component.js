@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var utilities_static_1 = require("../shared/utilities.static");
-var HeaderComponent = (function () {
+var HeaderComponent = /** @class */ (function () {
     function HeaderComponent() {
         this.optSelected = new core_1.EventEmitter();
         this.selectedOpt = utilities_static_1.Utilities.defaultMenuLocation;
@@ -20,17 +20,17 @@ var HeaderComponent = (function () {
         this.selectedOpt = opt; // allows us to set the active class against the menu item
         this.optSelected.emit(opt);
     };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", Object)
+    ], HeaderComponent.prototype, "optSelected", void 0);
+    HeaderComponent = __decorate([
+        core_1.Component({
+            selector: 'app-header',
+            templateUrl: './app/media/header/header.component.html'
+        })
+    ], HeaderComponent);
     return HeaderComponent;
 }());
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", Object)
-], HeaderComponent.prototype, "optSelected", void 0);
-HeaderComponent = __decorate([
-    core_1.Component({
-        selector: 'app-header',
-        templateUrl: './app/media/header/header.component.html'
-    })
-], HeaderComponent);
 exports.HeaderComponent = HeaderComponent;
 //# sourceMappingURL=header.component.js.map

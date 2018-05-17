@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Utilities = (function () {
+var Utilities = /** @class */ (function () {
     function Utilities() {
     }
+    Utilities.defaultMenuLocation = 'films';
+    Utilities.defaultParentMenuLocation = 'media';
     return Utilities;
 }());
-Utilities.defaultMenuLocation = 'films';
-Utilities.defaultParentMenuLocation = 'media';
 exports.Utilities = Utilities;
 //# sourceMappingURL=utilities.static.js.map

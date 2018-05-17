@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var CounterService = (function () {
+var CounterService = /** @class */ (function () {
     function CounterService() {
         this.activeToInactiveCounter = 0;
         this.inactiveToActiveCounter = 0;

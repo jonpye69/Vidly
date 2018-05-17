@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var ServersComponent = (function () {
+var ServersComponent = /** @class */ (function () {
     function ServersComponent() {
         var _this = this;
         this.serverId = 10;
@@ -61,15 +61,15 @@ var ServersComponent = (function () {
         //this.details.push(this.details.length);
         this.details.push(new Date().toLocaleString());
     };
+    ServersComponent = __decorate([
+        core_1.Component({
+            selector: 'app-servers',
+            templateUrl: './app/playground/servers/servers.component.html',
+            styles: ['.white-text { color: #fff; }']
+        }),
+        __metadata("design:paramtypes", [])
+    ], ServersComponent);
     return ServersComponent;
 }());
-ServersComponent = __decorate([
-    core_1.Component({
-        selector: 'app-servers',
-        templateUrl: './app/playground/servers/servers.component.html',
-        styles: ['.white-text { color: #fff; }']
-    }),
-    __metadata("design:paramtypes", [])
-], ServersComponent);
 exports.ServersComponent = ServersComponent;
 //# sourceMappingURL=servers.component.js.map

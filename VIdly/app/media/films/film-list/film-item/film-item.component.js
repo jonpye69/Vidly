@@ -16,7 +16,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var film_model_1 = require("../../film.model");
 var film_service_1 = require("../../../shared/services/film.service");
-var FilmItemComponent = (function () {
+var FilmItemComponent = /** @class */ (function () {
     function FilmItemComponent(filmService, document, renderer) {
         this.filmService = filmService;
         this.document = document;
@@ -49,27 +49,28 @@ var FilmItemComponent = (function () {
             (this.filmLength === this.filmNumber + 1 ? initClassName + ' border-radius-bottom-4 no-top-border' : initClassName + ' no-radius no-top-border');
         console.log('oninit this.filmListItemClasses = ' + this.filmListItemClasses);
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", film_model_1.Film)
+    ], FilmItemComponent.prototype, "film", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], FilmItemComponent.prototype, "filmNumber", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", Number)
+    ], FilmItemComponent.prototype, "filmLength", void 0);
+    FilmItemComponent = __decorate([
+        core_1.Component({
+            selector: 'app-film-item',
+            templateUrl: './app/media/films/film-list/film-item/film-item.component.html'
+        }),
+        __param(1, core_1.Inject(platform_browser_1.DOCUMENT)),
+        __metadata("design:paramtypes", [film_service_1.FilmService, Object, typeof (_a = typeof core_1.Renderer2 !== "undefined" && core_1.Renderer2) === "function" && _a || Object])
+    ], FilmItemComponent);
     return FilmItemComponent;
+    var _a;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", film_model_1.Film)
-], FilmItemComponent.prototype, "film", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], FilmItemComponent.prototype, "filmNumber", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", Number)
-], FilmItemComponent.prototype, "filmLength", void 0);
-FilmItemComponent = __decorate([
-    core_1.Component({
-        selector: 'app-film-item',
-        templateUrl: './app/media/films/film-list/film-item/film-item.component.html'
-    }),
-    __param(1, core_1.Inject(platform_browser_1.DOCUMENT)),
-    __metadata("design:paramtypes", [film_service_1.FilmService, Object, core_1.Renderer2])
-], FilmItemComponent);
 exports.FilmItemComponent = FilmItemComponent;
 //# sourceMappingURL=film-item.component.js.map

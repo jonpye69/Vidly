@@ -45,25 +45,25 @@ var appRoutes = [
     { path: 'Media', component: media_component_1.MediaComponent },
     { path: 'Playground', component: playground_component_1.PlaygroundComponent }
 ];
-var AppModule = (function () {
+var AppModule = /** @class */ (function () {
     function AppModule() {
     }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [ngx_bootstrap_1.ModalModule.forRoot(), platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes)],
+            declarations: [
+                app_component_1.AppComponent, server_component_1.ServerComponent, servers_component_1.ServersComponent, asHtml_pipe_1.EscapeHtmlPipe,
+                media_component_1.MediaComponent, playground_component_1.PlaygroundComponent, header_component_1.HeaderComponent,
+                films_component_1.FilmsComponent, film_list_component_1.FilmListComponent, film_item_component_1.FilmItemComponent, film_detail_component_1.FilmDetailComponent,
+                character_list_component_1.CharacterListComponent, character_edit_component_1.CharacterEditComponent,
+                highlight_directive_1.HighlightDirective, unless_directive_1.UnlessDirective, dropdown_directive_1.DropdownDirective,
+                active_users_component_1.ActiveUsersComponent, inactive_users_component_1.InactiveUsersComponent
+            ],
+            providers: [counter_service_1.CounterService, character_list_service_1.CharacterListService],
+            bootstrap: [app_component_1.AppComponent]
+        })
+    ], AppModule);
     return AppModule;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [ngx_bootstrap_1.ModalModule.forRoot(), platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule, router_1.RouterModule.forRoot(appRoutes)],
-        declarations: [
-            app_component_1.AppComponent, server_component_1.ServerComponent, servers_component_1.ServersComponent, asHtml_pipe_1.EscapeHtmlPipe,
-            media_component_1.MediaComponent, playground_component_1.PlaygroundComponent, header_component_1.HeaderComponent,
-            films_component_1.FilmsComponent, film_list_component_1.FilmListComponent, film_item_component_1.FilmItemComponent, film_detail_component_1.FilmDetailComponent,
-            character_list_component_1.CharacterListComponent, character_edit_component_1.CharacterEditComponent,
-            highlight_directive_1.HighlightDirective, unless_directive_1.UnlessDirective, dropdown_directive_1.DropdownDirective,
-            active_users_component_1.ActiveUsersComponent, inactive_users_component_1.InactiveUsersComponent
-        ],
-        providers: [counter_service_1.CounterService, character_list_service_1.CharacterListService],
-        bootstrap: [app_component_1.AppComponent]
-    })
-], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

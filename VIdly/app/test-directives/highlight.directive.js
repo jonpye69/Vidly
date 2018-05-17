@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var HighlightDirective = (function () {
+var HighlightDirective = /** @class */ (function () {
     function HighlightDirective(elRef, renderer) {
         this.elRef = elRef;
         this.renderer = renderer;
@@ -27,37 +27,38 @@ var HighlightDirective = (function () {
     HighlightDirective.prototype.mouseleave = function (eventData) {
         this.backgroundColour = this.defaultColour;
     };
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], HighlightDirective.prototype, "defaultColour", void 0);
+    __decorate([
+        core_1.Input(),
+        __metadata("design:type", String)
+    ], HighlightDirective.prototype, "changedColour", void 0);
+    __decorate([
+        core_1.HostBinding('style.backgroundColor'),
+        __metadata("design:type", String)
+    ], HighlightDirective.prototype, "backgroundColour", void 0);
+    __decorate([
+        core_1.HostListener('mouseenter'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], HighlightDirective.prototype, "mouseenter", null);
+    __decorate([
+        core_1.HostListener('mouseleave'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Event]),
+        __metadata("design:returntype", void 0)
+    ], HighlightDirective.prototype, "mouseleave", null);
+    HighlightDirective = __decorate([
+        core_1.Directive({
+            selector: '[appHighlight]'
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof core_1.ElementRef !== "undefined" && core_1.ElementRef) === "function" && _a || Object, typeof (_b = typeof core_1.Renderer2 !== "undefined" && core_1.Renderer2) === "function" && _b || Object])
+    ], HighlightDirective);
     return HighlightDirective;
+    var _a, _b;
 }());
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], HighlightDirective.prototype, "defaultColour", void 0);
-__decorate([
-    core_1.Input(),
-    __metadata("design:type", String)
-], HighlightDirective.prototype, "changedColour", void 0);
-__decorate([
-    core_1.HostBinding('style.backgroundColor'),
-    __metadata("design:type", String)
-], HighlightDirective.prototype, "backgroundColour", void 0);
-__decorate([
-    core_1.HostListener('mouseenter'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], HighlightDirective.prototype, "mouseenter", null);
-__decorate([
-    core_1.HostListener('mouseleave'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Event]),
-    __metadata("design:returntype", void 0)
-], HighlightDirective.prototype, "mouseleave", null);
-HighlightDirective = __decorate([
-    core_1.Directive({
-        selector: '[appHighlight]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer2])
-], HighlightDirective);
 exports.HighlightDirective = HighlightDirective;
 //# sourceMappingURL=highlight.directive.js.map

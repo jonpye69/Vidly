@@ -11,24 +11,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var utilities_static_1 = require("./shared/utilities.static");
-var MediaComponent = (function () {
+var MediaComponent = /** @class */ (function () {
     function MediaComponent() {
         this.loadedOpt = utilities_static_1.Utilities.defaultMenuLocation;
     }
     MediaComponent.prototype.onNavigate = function (opt) {
         this.loadedOpt = opt;
     };
+    __decorate([
+        core_1.Output(),
+        __metadata("design:type", String)
+    ], MediaComponent.prototype, "loadedOpt", void 0);
+    MediaComponent = __decorate([
+        core_1.Component({
+            selector: 'my-app',
+            templateUrl: './app/media/media.component.html'
+        })
+    ], MediaComponent);
     return MediaComponent;
 }());
-__decorate([
-    core_1.Output(),
-    __metadata("design:type", String)
-], MediaComponent.prototype, "loadedOpt", void 0);
-MediaComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        templateUrl: './app/media/media.component.html'
-    })
-], MediaComponent);
 exports.MediaComponent = MediaComponent;
 //# sourceMappingURL=media.component.js.map

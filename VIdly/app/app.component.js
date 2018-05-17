@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_service_1 = require("./playground/user.service");
 var utilities_static_1 = require("./media/shared/utilities.static");
-var AppComponent = (function () {
+var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.framework = 'Angular';
         this.version = '2.0';
@@ -26,20 +26,20 @@ var AppComponent = (function () {
     AppComponent.prototype.onParentSelect = function (link) {
         this.selectedParentOpt = link;
     };
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: 'my-app',
+            templateUrl: './app/links.component.html',
+            providers: [user_service_1.UserService]
+            //templateUrl: './app/app.component.html' 
+            //template: `<ul>
+            //    <li><a [routerLink] = "['/media']">Media</a></li>
+            //    <li><a [routerLink] = "['/playground']">Playground</a></li>
+            // </ul>
+            // <router-outlet></router-outlet>`
+        })
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        templateUrl: './app/links.component.html',
-        providers: [user_service_1.UserService]
-        //templateUrl: './app/app.component.html' 
-        //template: `<ul>
-        //    <li><a [routerLink] = "['/media']">Media</a></li>
-        //    <li><a [routerLink] = "['/playground']">Playground</a></li>
-        // </ul>
-        // <router-outlet></router-outlet>`
-    })
-], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

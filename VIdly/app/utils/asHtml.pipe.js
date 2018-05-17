@@ -11,18 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
-var EscapeHtmlPipe = (function () {
+var EscapeHtmlPipe = /** @class */ (function () {
     function EscapeHtmlPipe(sanitizer) {
         this.sanitizer = sanitizer;
     }
     EscapeHtmlPipe.prototype.transform = function (content) {
         return this.sanitizer.bypassSecurityTrustHtml(content);
     };
+    EscapeHtmlPipe = __decorate([
+        core_1.Pipe({ name: 'asHtmlPipe', pure: false }),
+        __metadata("design:paramtypes", [typeof (_a = typeof platform_browser_1.DomSanitizer !== "undefined" && platform_browser_1.DomSanitizer) === "function" && _a || Object])
+    ], EscapeHtmlPipe);
     return EscapeHtmlPipe;
+    var _a;
 }());
-EscapeHtmlPipe = __decorate([
-    core_1.Pipe({ name: 'asHtmlPipe', pure: false }),
-    __metadata("design:paramtypes", [platform_browser_1.DomSanitizer])
-], EscapeHtmlPipe);
 exports.EscapeHtmlPipe = EscapeHtmlPipe;
 //# sourceMappingURL=asHtml.pipe.js.map

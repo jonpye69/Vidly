@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var character_model_1 = require("../character.model");
-var CharacterListService = (function () {
+var CharacterListService = /** @class */ (function () {
     function CharacterListService() {
         this.charactersChanged = new core_1.EventEmitter();
         this.characters = [

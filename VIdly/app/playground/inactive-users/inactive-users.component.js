@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var user_service_1 = require("../user.service");
-var InactiveUsersComponent = (function () {
+var InactiveUsersComponent = /** @class */ (function () {
     function InactiveUsersComponent(userService) {
         this.userService = userService;
     }
@@ -23,14 +23,14 @@ var InactiveUsersComponent = (function () {
         this.userService.setToActive(id);
         this.userInactiveCount = this.userService.inactiveUsers.length;
     };
+    InactiveUsersComponent = __decorate([
+        core_1.Component({
+            selector: 'app-inactive-users',
+            templateUrl: './app/playground/inactive-users/inactive-users.component.html'
+        }),
+        __metadata("design:paramtypes", [user_service_1.UserService])
+    ], InactiveUsersComponent);
     return InactiveUsersComponent;
 }());
-InactiveUsersComponent = __decorate([
-    core_1.Component({
-        selector: 'app-inactive-users',
-        templateUrl: './app/playground/inactive-users/inactive-users.component.html'
-    }),
-    __metadata("design:paramtypes", [user_service_1.UserService])
-], InactiveUsersComponent);
 exports.InactiveUsersComponent = InactiveUsersComponent;
 //# sourceMappingURL=inactive-users.component.js.map

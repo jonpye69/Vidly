@@ -13,7 +13,7 @@ var core_1 = require("@angular/core");
 var film_model_1 = require("../../films/film.model");
 var character_model_1 = require("../character.model");
 var character_list_service_1 = require("./character-list.service");
-var FilmService = (function () {
+var FilmService = /** @class */ (function () {
     function FilmService(characterListService) {
         this.characterListService = characterListService;
         this.filmSelected = new core_1.EventEmitter();
@@ -31,11 +31,11 @@ var FilmService = (function () {
     FilmService.prototype.addCharsToCharList = function (characters) {
         this.characterListService.addCharacters(characters);
     };
+    FilmService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [character_list_service_1.CharacterListService])
+    ], FilmService);
     return FilmService;
 }());
-FilmService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [character_list_service_1.CharacterListService])
-], FilmService);
 exports.FilmService = FilmService;
 //# sourceMappingURL=film.service.js.map

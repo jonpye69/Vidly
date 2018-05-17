@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var film_service_1 = require("../shared/services/film.service");
-var FilmsComponent = (function () {
+var FilmsComponent = /** @class */ (function () {
     function FilmsComponent(filmService) {
         this.filmService = filmService;
     }
@@ -22,15 +22,15 @@ var FilmsComponent = (function () {
             _this.selectedFilm = film;
         });
     };
+    FilmsComponent = __decorate([
+        core_1.Component({
+            selector: 'app-films',
+            templateUrl: './app/media/films/films.component.html',
+            providers: [film_service_1.FilmService]
+        }),
+        __metadata("design:paramtypes", [film_service_1.FilmService])
+    ], FilmsComponent);
     return FilmsComponent;
 }());
-FilmsComponent = __decorate([
-    core_1.Component({
-        selector: 'app-films',
-        templateUrl: './app/media/films/films.component.html',
-        providers: [film_service_1.FilmService]
-    }),
-    __metadata("design:paramtypes", [film_service_1.FilmService])
-], FilmsComponent);
 exports.FilmsComponent = FilmsComponent;
 //# sourceMappingURL=films.component.js.map

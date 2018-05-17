@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var PlaygroundComponent = (function () {
+var PlaygroundComponent = /** @class */ (function () {
     function PlaygroundComponent() {
         this.framework = 'Angular';
         this.version = '2.0';
@@ -16,13 +16,13 @@ var PlaygroundComponent = (function () {
         this.textInput = '';
         this.jumbotronText = 'Angular 4 Playground';
     }
+    PlaygroundComponent = __decorate([
+        core_1.Component({
+            selector: 'my-app',
+            templateUrl: './app/playground/playground.component.html'
+        })
+    ], PlaygroundComponent);
     return PlaygroundComponent;
 }());
-PlaygroundComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        templateUrl: './app/playground/playground.component.html'
-    })
-], PlaygroundComponent);
 exports.PlaygroundComponent = PlaygroundComponent;
 //# sourceMappingURL=playground.component.js.map

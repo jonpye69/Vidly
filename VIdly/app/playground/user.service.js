@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var counter_service_1 = require("./counter.service");
-var UserService = (function () {
+var UserService = /** @class */ (function () {
     function UserService(counterService) {
         this.counterService = counterService;
         this.activeUsers = ['jon', 'james', 'jonas'];
@@ -27,11 +27,11 @@ var UserService = (function () {
         this.activeUsers.splice(id, 1);
         this.counterService.incActiveToInactive();
     };
+    UserService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [counter_service_1.CounterService])
+    ], UserService);
     return UserService;
 }());
-UserService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [counter_service_1.CounterService])
-], UserService);
 exports.UserService = UserService;
 //# sourceMappingURL=user.service.js.map

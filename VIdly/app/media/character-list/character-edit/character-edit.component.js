@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var character_model_1 = require("../../shared/character.model");
 var character_list_service_1 = require("../../shared/services/character-list.service");
-var CharacterEditComponent = (function () {
+var CharacterEditComponent = /** @class */ (function () {
     function CharacterEditComponent(characterListService) {
         this.characterListService = characterListService;
         this.name = '';
@@ -30,22 +30,23 @@ var CharacterEditComponent = (function () {
         this.name = '';
         this.age = null;
     };
+    __decorate([
+        core_1.ViewChild('characterNameInput'),
+        __metadata("design:type", typeof (_a = typeof core_1.ElementRef !== "undefined" && core_1.ElementRef) === "function" && _a || Object)
+    ], CharacterEditComponent.prototype, "characterNameInputRef", void 0);
+    __decorate([
+        core_1.ViewChild('characterAgeInput'),
+        __metadata("design:type", typeof (_b = typeof core_1.ElementRef !== "undefined" && core_1.ElementRef) === "function" && _b || Object)
+    ], CharacterEditComponent.prototype, "characterAgeInputRef", void 0);
+    CharacterEditComponent = __decorate([
+        core_1.Component({
+            selector: 'app-character-edit',
+            templateUrl: './app/media/character-list/character-edit/character-edit.component.html'
+        }),
+        __metadata("design:paramtypes", [character_list_service_1.CharacterListService])
+    ], CharacterEditComponent);
     return CharacterEditComponent;
+    var _a, _b;
 }());
-__decorate([
-    core_1.ViewChild('characterNameInput'),
-    __metadata("design:type", core_1.ElementRef)
-], CharacterEditComponent.prototype, "characterNameInputRef", void 0);
-__decorate([
-    core_1.ViewChild('characterAgeInput'),
-    __metadata("design:type", core_1.ElementRef)
-], CharacterEditComponent.prototype, "characterAgeInputRef", void 0);
-CharacterEditComponent = __decorate([
-    core_1.Component({
-        selector: 'app-character-edit',
-        templateUrl: './app/media/character-list/character-edit/character-edit.component.html'
-    }),
-    __metadata("design:paramtypes", [character_list_service_1.CharacterListService])
-], CharacterEditComponent);
 exports.CharacterEditComponent = CharacterEditComponent;
 //# sourceMappingURL=character-edit.component.js.map

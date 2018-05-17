@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var DropdownDirective = (function () {
+var DropdownDirective = /** @class */ (function () {
     // The below code allows us to use an event emitter to detect clicks not inside our respective element
     // Thanks in part to https://www.npmjs.com/package/angular2-click-outside
     function DropdownDirective(elRef) {
@@ -26,29 +26,30 @@ var DropdownDirective = (function () {
             this.isOpen = false;
         }
     };
+    __decorate([
+        core_1.HostBinding('class.open'),
+        __metadata("design:type", Boolean)
+    ], DropdownDirective.prototype, "isOpen", void 0);
+    __decorate([
+        core_1.HostListener('click'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], DropdownDirective.prototype, "toggleOpen", null);
+    __decorate([
+        core_1.HostListener('document:click', ['$event.target']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], DropdownDirective.prototype, "onClick", null);
+    DropdownDirective = __decorate([
+        core_1.Directive({
+            selector: '[appDropdown]'
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof core_1.ElementRef !== "undefined" && core_1.ElementRef) === "function" && _a || Object])
+    ], DropdownDirective);
     return DropdownDirective;
+    var _a;
 }());
-__decorate([
-    core_1.HostBinding('class.open'),
-    __metadata("design:type", Boolean)
-], DropdownDirective.prototype, "isOpen", void 0);
-__decorate([
-    core_1.HostListener('click'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], DropdownDirective.prototype, "toggleOpen", null);
-__decorate([
-    core_1.HostListener('document:click', ['$event.target']),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], DropdownDirective.prototype, "onClick", null);
-DropdownDirective = __decorate([
-    core_1.Directive({
-        selector: '[appDropdown]'
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef])
-], DropdownDirective);
 exports.DropdownDirective = DropdownDirective;
 //# sourceMappingURL=dropdown.directive.js.map

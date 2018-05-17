@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var character_list_service_1 = require("../shared/services/character-list.service");
-var CharacterListComponent = (function () {
+var CharacterListComponent = /** @class */ (function () {
     function CharacterListComponent(characterListService) {
         this.characterListService = characterListService;
     }
@@ -24,14 +24,14 @@ var CharacterListComponent = (function () {
             _this.characters = characters;
         });
     };
+    CharacterListComponent = __decorate([
+        core_1.Component({
+            selector: 'app-character-list',
+            templateUrl: './app/media/character-list/character-list.component.html'
+        }),
+        __metadata("design:paramtypes", [character_list_service_1.CharacterListService])
+    ], CharacterListComponent);
     return CharacterListComponent;
 }());
-CharacterListComponent = __decorate([
-    core_1.Component({
-        selector: 'app-character-list',
-        templateUrl: './app/media/character-list/character-list.component.html'
-    }),
-    __metadata("design:paramtypes", [character_list_service_1.CharacterListService])
-], CharacterListComponent);
 exports.CharacterListComponent = CharacterListComponent;
 //# sourceMappingURL=character-list.component.js.map
